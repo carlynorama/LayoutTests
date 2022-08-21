@@ -48,8 +48,6 @@ struct AStack<Content:View>: View {
                 buildOldStyleContent(with:aspectRatio)
             }
         }
-        
-        
     }
     
     @available(iOS 16.0, *)
