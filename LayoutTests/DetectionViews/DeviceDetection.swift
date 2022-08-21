@@ -65,8 +65,14 @@ struct DeviceDetection: View {
 //        let currentDevice = UIDevice.current//.description
 //        return currentDevice.description
 //        switch currentDevice {
+    
+
+    
 //        case let str where str.contains("iPad"):
 //            return "iPad"
+    //also could be written as:
+    //    case _ where currentDevice.contains("iPad"):
+    
 //        case let str where str.contains("iPhone"):
 //            return "iPhone"
 //        case let str where str.contains("watchOS"):
