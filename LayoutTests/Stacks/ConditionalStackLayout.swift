@@ -3,7 +3,7 @@
 //  LayoutTests
 //
 //  Created by Labtanza on 8/21/22.
-//
+//  https://www.swiftbysundell.com/articles/switching-between-swiftui-hstack-vstack/
 
 import SwiftUI
 
@@ -37,6 +37,7 @@ struct ConditionalStackLayout<Content:View>: View {
             }
     }
     
+    //Am I loosing the identity preservation by putting these in a viewbuilder func?
     @available(iOS 16.0, *)
     @ViewBuilder func buildNewStyleContent(_ test:Bool) -> some View {
         let layout = (test) ?
