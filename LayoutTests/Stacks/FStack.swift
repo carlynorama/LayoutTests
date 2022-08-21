@@ -16,7 +16,15 @@ struct FStack<Content:View>: View {
     let content:Content
     
     var test:Bool {
-        size != .compact // vs (size == .regular) ?
+        //size != .compact // vs (size == .regular) ?
+        switch size {
+        case .regular:
+            return true
+        case .compact, .none:
+            return false
+        @unknown default:
+            return false
+        }
     }
     
     
