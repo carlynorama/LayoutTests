@@ -6,16 +6,11 @@
 
 //https://www.swiftbysundell.com/articles/switching-between-swiftui-hstack-vstack/
 
-extension CGSize {
-    var aspectRatio:CGFloat{
-        self.width / self.height
-    }
-}
 
 import SwiftUI
 
+//An AStack but with ConditionalStackLayout underneath. 
 struct AStack<Content:View>: View {
-    //@Environment(\.horizontalSizeClass) private var size
     let horizontalAlignment: HorizontalAlignment
     let verticalAlignment: VerticalAlignment
     let spacing: CGFloat?
@@ -24,9 +19,10 @@ struct AStack<Content:View>: View {
     @State var size:CGSize = .zero
     @State var parentSize:CGSize = .zero
     
-    var aspectRatio:CGFloat {
-        parentSize.aspectRatio
+    var test:Bool {
+        parentSize.aspectRatio > 1
     }
+    
     
     public init(
         horizontalAlignment: HorizontalAlignment = .center,
@@ -42,37 +38,11 @@ struct AStack<Content:View>: View {
     
     var body: some View {
         ViewThatKnows(size: $size, parentSize: $parentSize) {
-            if #available(iOS 16.0, *) {
-                buildNewStyleContent(with:aspectRatio)
-            } else {
-                buildOldStyleContent(with:aspectRatio)
+            ConditionalStackLayout(isHorizontal: test, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, spacing: spacing) {
+                content
             }
         }
     }
-    
-    @available(iOS 16.0, *)
-    @ViewBuilder func buildNewStyleContent(with ratio:CGFloat) -> some View {
-        let layout = (ratio > 1) ?
-        AnyLayout(HStackLayout(alignment: verticalAlignment, spacing: spacing)) :
-        AnyLayout(VStackLayout(alignment: horizontalAlignment, spacing: spacing))
-        
-        layout {
-            content
-        }
-        .animation(.default, value: parentSize)
-    }
-    
-    @ViewBuilder func buildOldStyleContent(with ratio:CGFloat) -> some View  {
-        ZStack {
-            if (ratio > 1) {
-                HStack(alignment: verticalAlignment, spacing: spacing) { content }
-                
-            } else {
-                VStack(alignment: horizontalAlignment, spacing: spacing) { content }
-            }
-        }.animation(.default, value: parentSize)
-    }
-    
     
 }
 

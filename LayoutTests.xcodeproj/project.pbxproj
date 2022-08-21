@@ -14,15 +14,15 @@
 		DA146FE828B27E350004E28E /* LayoutTestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA146FE728B27E350004E28E /* LayoutTestsTests.swift */; };
 		DA146FF228B27E350004E28E /* LayoutTestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA146FF128B27E350004E28E /* LayoutTestsUITests.swift */; };
 		DA146FF428B27E350004E28E /* LayoutTestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA146FF328B27E350004E28E /* LayoutTestsUITestsLaunchTests.swift */; };
-		DA14700128B27E4B0004E28E /* FStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700028B27E4B0004E28E /* FStack.swift */; };
 		DA14700328B2815B0004E28E /* DeviceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700228B2815B0004E28E /* DeviceDetection.swift */; };
 		DA14700528B286C90004E28E /* SizeClassDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700428B286C90004E28E /* SizeClassDetectionView.swift */; };
-		DA14700728B287F20004E28E /* AStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700628B287F20004E28E /* AStack.swift */; };
 		DA14700D28B2A7070004E28E /* ViewThatKnows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700C28B2A7070004E28E /* ViewThatKnows.swift */; };
 		DA14701128B2BB530004E28E /* TStackTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14701028B2BB530004E28E /* TStackTestView.swift */; };
-		DA14701328B2BCA80004E28E /* TStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14701228B2BCA80004E28E /* TStack.swift */; };
 		DA14701528B2C3350004E28E /* ConditionalStackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14701428B2C3350004E28E /* ConditionalStackLayout.swift */; };
-		DA14701728B2C4CC0004E28E /* AStack2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14701628B2C4CC0004E28E /* AStack2.swift */; };
+		DA14701728B2C4CC0004E28E /* AStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14701628B2C4CC0004E28E /* AStack.swift */; };
+		DAA8AF9C28B2CBFC00615CD5 /* TStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */; };
+		DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9F28B2CE8300615CD5 /* FStack.swift */; };
+		DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,15 +53,15 @@
 		DA146FED28B27E350004E28E /* LayoutTestsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LayoutTestsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA146FF128B27E350004E28E /* LayoutTestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTestsUITests.swift; sourceTree = "<group>"; };
 		DA146FF328B27E350004E28E /* LayoutTestsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTestsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DA14700028B27E4B0004E28E /* FStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FStack.swift; sourceTree = "<group>"; };
 		DA14700228B2815B0004E28E /* DeviceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetection.swift; sourceTree = "<group>"; };
 		DA14700428B286C90004E28E /* SizeClassDetectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClassDetectionView.swift; sourceTree = "<group>"; };
-		DA14700628B287F20004E28E /* AStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStack.swift; sourceTree = "<group>"; };
 		DA14700C28B2A7070004E28E /* ViewThatKnows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewThatKnows.swift; sourceTree = "<group>"; };
 		DA14701028B2BB530004E28E /* TStackTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStackTestView.swift; sourceTree = "<group>"; };
-		DA14701228B2BCA80004E28E /* TStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStack.swift; sourceTree = "<group>"; };
 		DA14701428B2C3350004E28E /* ConditionalStackLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalStackLayout.swift; sourceTree = "<group>"; };
-		DA14701628B2C4CC0004E28E /* AStack2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStack2.swift; sourceTree = "<group>"; };
+		DA14701628B2C4CC0004E28E /* AStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStack.swift; sourceTree = "<group>"; };
+		DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStack.swift; sourceTree = "<group>"; };
+		DAA8AF9F28B2CE8300615CD5 /* FStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FStack.swift; sourceTree = "<group>"; };
+		DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +115,7 @@
 				DA146FD628B27E340004E28E /* LayoutTestsApp.swift */,
 				DA146FD828B27E340004E28E /* ContentView.swift */,
 				DA14700428B286C90004E28E /* SizeClassDetectionView.swift */,
+				DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */,
 				DA14701828B2C9880004E28E /* Stacks */,
 				DA14700C28B2A7070004E28E /* ViewThatKnows.swift */,
 				DA14700228B2815B0004E28E /* DeviceDetection.swift */,
@@ -153,10 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				DA14701428B2C3350004E28E /* ConditionalStackLayout.swift */,
-				DA14700028B27E4B0004E28E /* FStack.swift */,
-				DA14701628B2C4CC0004E28E /* AStack2.swift */,
-				DA14700628B287F20004E28E /* AStack.swift */,
-				DA14701228B2BCA80004E28E /* TStack.swift */,
+				DA14701628B2C4CC0004E28E /* AStack.swift */,
+				DAA8AF9F28B2CE8300615CD5 /* FStack.swift */,
+				DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */,
 				DA14701028B2BB530004E28E /* TStackTestView.swift */,
 			);
 			path = Stacks;
@@ -292,16 +292,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA14700128B27E4B0004E28E /* FStack.swift in Sources */,
-				DA14701328B2BCA80004E28E /* TStack.swift in Sources */,
 				DA146FD928B27E340004E28E /* ContentView.swift in Sources */,
+				DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */,
 				DA14700D28B2A7070004E28E /* ViewThatKnows.swift in Sources */,
 				DA14701528B2C3350004E28E /* ConditionalStackLayout.swift in Sources */,
-				DA14701728B2C4CC0004E28E /* AStack2.swift in Sources */,
+				DA14701728B2C4CC0004E28E /* AStack.swift in Sources */,
 				DA14700528B286C90004E28E /* SizeClassDetectionView.swift in Sources */,
 				DA146FD728B27E340004E28E /* LayoutTestsApp.swift in Sources */,
+				DAA8AF9C28B2CBFC00615CD5 /* TStack.swift in Sources */,
+				DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */,
 				DA14701128B2BB530004E28E /* TStackTestView.swift in Sources */,
-				DA14700728B287F20004E28E /* AStack.swift in Sources */,
 				DA14700328B2815B0004E28E /* DeviceDetection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

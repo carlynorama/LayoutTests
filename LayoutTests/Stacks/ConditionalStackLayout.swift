@@ -13,12 +13,10 @@ struct ConditionalStackLayout<Content:View>: View {
     let spacing: CGFloat?
     let content:Content
     
-    //As binding or not?? pros cons?
-    @Binding var test:Bool
-    //var test:Bool
+    var test:Bool
     
     public init(
-        isHorizontal:Binding<Bool>,
+        isHorizontal:Bool,
         horizontalAlignment: HorizontalAlignment = .center,
         verticalAlignment: VerticalAlignment = .center,
         spacing: CGFloat? = nil,
@@ -28,7 +26,7 @@ struct ConditionalStackLayout<Content:View>: View {
         self.verticalAlignment = verticalAlignment
         self.spacing = spacing
         self.content = Content()
-        self._test = isHorizontal
+        self.test = isHorizontal
     }
     
     var body: some View {
@@ -66,7 +64,7 @@ struct ConditionalStackLayout<Content:View>: View {
 
 struct ConditionalLayout_Previews: PreviewProvider {
     static var previews: some View {
-            AStack2() {
+            AStack() {
                 Text("Horizontal when its wide")
                 Text("but")
                 Text("Vertical when its narrow")
