@@ -53,13 +53,6 @@ struct ViewThatKnows<Content:View>: View {
     }
 }
 
-//fileprivate extension Binding {
-//    static func mock(_ value: Value) -> Self {
-//        var value = value
-//        return Binding(get: { value }, set: { value = $0 })
-//    }
-//}
-
 fileprivate struct ViewForPreview:View {
     @State var size:CGSize = .zero
     @State var parent:CGSize = .zero
