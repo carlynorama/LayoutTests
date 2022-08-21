@@ -37,7 +37,7 @@ struct ViewThatKnows<Content:View>: View {
     
     var body: some View {
         ZStack {
-            Color.clear.background(            SizeView.onPreferenceChange(SizePreferenceKey.self, perform:onParentChange))
+            SizeView.onPreferenceChange(SizePreferenceKey.self, perform:onParentChange)
             content.background(
                 SizeView.onPreferenceChange(SizePreferenceKey.self, perform:onChange)
             )
@@ -58,15 +58,18 @@ fileprivate struct ViewForPreview:View {
     @State var parent:CGSize = .zero
     var body: some View {
         VStack {
-            Text("Extra view")
+           // Text("Extra view")
             ViewThatKnows(size: $size, parentSize: $parent){
                 VStack {
                     Text("Hello I am \(size.width), \(size.height)").foregroundColor(.blue)
                     Text("My parent is \(parent.width), \(parent.height)").foregroundColor(.orange)
                 }.border(.blue)
-            }.layoutPriority(-1)//.frame(maxHeight: size.height*2)
+            }
+            //.layoutPriority(-1)
+            //.frame(maxHeight: size.height*2)
             .border(.orange)
-            Image(systemName:"globe").resizable().aspectRatio(contentMode: .fit)
+           // Text("Another Text View").layoutPriority(7)
+            //Image(systemName:"globe").resizable().aspectRatio(contentMode: .fit)
         }
     }
 }
