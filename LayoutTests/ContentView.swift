@@ -9,14 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        AStack {
+       HPreferingStack {
             SizeClassDetectionView()
+            Divider()
+            DeviceDetection()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-    }
+          ContentView()
+              .environment(\.sizeCategory, .extraSmall)
+          ContentView()
+          ContentView()
+              .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
+      }
 }
