@@ -14,6 +14,11 @@
 		DA146FE828B27E350004E28E /* LayoutTestsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA146FE728B27E350004E28E /* LayoutTestsTests.swift */; };
 		DA146FF228B27E350004E28E /* LayoutTestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA146FF128B27E350004E28E /* LayoutTestsUITests.swift */; };
 		DA146FF428B27E350004E28E /* LayoutTestsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA146FF328B27E350004E28E /* LayoutTestsUITestsLaunchTests.swift */; };
+		DA14700128B27E4B0004E28E /* FStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700028B27E4B0004E28E /* FStack.swift */; };
+		DA14700328B2815B0004E28E /* DeviceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700228B2815B0004E28E /* DeviceDetection.swift */; };
+		DA14700528B286C90004E28E /* SizeClassDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700428B286C90004E28E /* SizeClassDetectionView.swift */; };
+		DA14700728B287F20004E28E /* AStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700628B287F20004E28E /* AStack.swift */; };
+		DA14700928B2894C0004E28E /* CloudGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14700828B2894C0004E28E /* CloudGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		DA146FED28B27E350004E28E /* LayoutTestsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LayoutTestsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA146FF128B27E350004E28E /* LayoutTestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTestsUITests.swift; sourceTree = "<group>"; };
 		DA146FF328B27E350004E28E /* LayoutTestsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutTestsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DA14700028B27E4B0004E28E /* FStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FStack.swift; sourceTree = "<group>"; };
+		DA14700228B2815B0004E28E /* DeviceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetection.swift; sourceTree = "<group>"; };
+		DA14700428B286C90004E28E /* SizeClassDetectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClassDetectionView.swift; sourceTree = "<group>"; };
+		DA14700628B287F20004E28E /* AStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStack.swift; sourceTree = "<group>"; };
+		DA14700828B2894C0004E28E /* CloudGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,11 @@
 			children = (
 				DA146FD628B27E340004E28E /* LayoutTestsApp.swift */,
 				DA146FD828B27E340004E28E /* ContentView.swift */,
+				DA14700428B286C90004E28E /* SizeClassDetectionView.swift */,
+				DA14700028B27E4B0004E28E /* FStack.swift */,
+				DA14700628B287F20004E28E /* AStack.swift */,
+				DA14700828B2894C0004E28E /* CloudGrid.swift */,
+				DA14700228B2815B0004E28E /* DeviceDetection.swift */,
 				DA146FDA28B27E350004E28E /* Assets.xcassets */,
 				DA146FDC28B27E350004E28E /* Preview Content */,
 			);
@@ -257,8 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA14700128B27E4B0004E28E /* FStack.swift in Sources */,
 				DA146FD928B27E340004E28E /* ContentView.swift in Sources */,
+				DA14700528B286C90004E28E /* SizeClassDetectionView.swift in Sources */,
 				DA146FD728B27E340004E28E /* LayoutTestsApp.swift in Sources */,
+				DA14700728B287F20004E28E /* AStack.swift in Sources */,
+				DA14700928B2894C0004E28E /* CloudGrid.swift in Sources */,
+				DA14700328B2815B0004E28E /* DeviceDetection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
