@@ -93,7 +93,8 @@ struct RowTestView: View {
     
     var body: some View {
         VStack {
-            Label("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.", systemImage: "globe").border(.pink)
+//            Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.").logSizes("Text")
+//            Label("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.", systemImage: "globe").logSizes("Label").border(.pink)
 //            Label(title: {SomeRowText()}, icon: {           Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit)
 //
 //            }).border(.pink)
@@ -106,17 +107,23 @@ struct RowTestView: View {
 //                Spacer()
 //                SomeRowText().border(.blue)
 //            }.border(.pink)
+//            EHLabel {
+//                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
+//                Spacer().border(.green)
+//                //SomeRowText().border(.blue)
+//                TallRowText().border(.blue)
+//            }
             
             EHLabel {
+//                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
+//                Spacer()
                 Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
-                Spacer()
-                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
-                Spacer()
+                Spacer().border(.green)
                 //SomeRowText().border(.blue)
                 //TallRowText().border(.blue)
                 //Text("Some short Text.")
-                Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.")
-                    .layoutPriority(6)
+                Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.").logSizes("Inside Text")
+                    .layoutPriority(7)
                 //.layoutPriority(6)
 //                VStack{
 //                    Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.")
@@ -125,6 +132,7 @@ struct RowTestView: View {
                     //.layoutPriority(5)
                     //.fixedSize(horizontal: false, vertical: true)
             }.border(.pink)
+                .padding()
             
             //ARow().border(.pink)
             //        ViewThatFits {

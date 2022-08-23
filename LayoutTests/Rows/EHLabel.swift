@@ -33,7 +33,7 @@ struct EHLabel: Layout {
     ) -> CGSize {
         guard !subviews.isEmpty else { return .zero }
 
-        let maxSize = maxSize(subviews: subviews)
+        let maxSize = maxSize(subviews: subviews, proposal: proposal)
         let spacing = spacing(subviews: subviews)
         let desiredWidths = getDesiredWidths(for: subviews, with: maxSize.height, proposal: proposal)
         
@@ -55,7 +55,7 @@ struct EHLabel: Layout {
     ) {
         guard !subviews.isEmpty else { return }
 
-        let maxSize = maxSize(subviews: subviews)
+        let maxSize = maxSize(subviews: subviews, proposal: proposal)
         let spacing = spacing(subviews: subviews)
         let desiredWidths = getDesiredWidths(for: subviews, with: maxSize.height, proposal: proposal)
         
@@ -81,44 +81,41 @@ struct EHLabel: Layout {
     private func getDesiredWidths(for subviews: Subviews, with height:CGFloat, proposal:ProposedViewSize) ->  [CGFloat] {
         var newWidths:[CGFloat] = []
         for index in subviews.indices {
-            
             switch subviews[index].priority {
-            case 0:
+//            case let x where x < 0:
+//                newWidths.append((max(subviews[index].sizeThatFits(styleForPriority(x, height: height, proposal:proposal)).width, height)))
+            case let x where x == 0:
                 newWidths.append((max(subviews[index].sizeThatFits(.unspecified).width, height)))
-            case -1:
-                newWidths.append(subviews[index].sizeThatFits(.unspecified).width)
-            case -.infinity:
-                //spacers
-                newWidths.append(subviews[index].sizeThatFits(.unspecified).width)
-            case 10:
-                newWidths.append(subviews[index].sizeThatFits(.infinity).width)
-            case -10:
-                newWidths.append(subviews[index].sizeThatFits(.zero).width)
-            case 6:
-                newWidths.append(subviews[index].sizeThatFits(.init(width: 200.0, height: 200.0)).width)
+            case let x where x > 0:
+                newWidths.append((max(subviews[index].sizeThatFits(styleForPriority(x, height: height, proposal:proposal)).width, height)))
             default:
-                newWidths.append((max(subviews[index].sizeThatFits(.unspecified).width, height)))
+                newWidths.append(subviews[index].sizeThatFits(.unspecified).width)
             }
         }
         return(newWidths)
     }
     
-    private func styleForPriority(_ priority:Double) -> ProposedViewSize {
+    private func styleForPriority(_ priority:Double, height:CGFloat = .zero, proposal:ProposedViewSize = .zero) -> ProposedViewSize {
         switch priority {
         case 10:
             return .infinity
         case -10:
             return .zero
-        case 6:
-            return .init(width: 200.0, height: 200.0)
+        case let x where (5...10).contains(x):
+            let factor = CGFloat(x) * 0.10
+            let width = (proposal.width ?? 0)// * factor
+            let height:CGFloat = proposal.height ?? .zero
+            return .init(CGSize(width: width, height: height))
+        case let x where x < -10:
+            return .unspecified
         default:
             return .unspecified
         }
     }
 
     /// Finds the largest ideal size of the subviews.
-    private func maxSize(subviews: Subviews) -> CGSize {
-        let subviewSizes = subviews.map { $0.sizeThatFits(styleForPriority($0.priority)) }
+    private func maxSize(subviews: Subviews, proposal:ProposedViewSize = .zero) -> CGSize {
+        let subviewSizes = subviews.map { $0.sizeThatFits(styleForPriority($0.priority, proposal: proposal)) }
         let maxSize: CGSize = subviewSizes.reduce(.zero) { currentMax, subviewSize in
             CGSize(
                 width: max(currentMax.width, subviewSize.width),
