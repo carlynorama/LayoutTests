@@ -29,7 +29,7 @@ enum Algo: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
-struct EnumSwitcher: View {
+struct FlowSwitcher: View {
     @State var algo = Algo.hstack
         
         var body: some View {
@@ -100,6 +100,6 @@ struct FlowLayout:Layout {
 
 struct EnumSwitcher_Previews: PreviewProvider {
     static var previews: some View {
-        EnumSwitcher()
+        FlowSwitcher()
     }
 }
