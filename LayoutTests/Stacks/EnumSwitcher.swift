@@ -14,6 +14,7 @@ enum Algo: String, CaseIterable, Identifiable {
     case hstack
     case zstack
     case flow
+    //case circle
     
     var layout: any Layout {
         switch self {
@@ -21,6 +22,7 @@ enum Algo: String, CaseIterable, Identifiable {
         case .hstack: return HStackLayout()
         case .zstack: return ZStackLayout()
         case .flow: return FlowLayout()
+        //case .circle: return _CircleLayout(radius: 200)
         }
     }
     

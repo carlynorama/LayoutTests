@@ -32,6 +32,7 @@
 		DAB0C36128B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */; };
 		DAB0C36328B4318C00BDAFFC /* EStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36228B4318C00BDAFFC /* EStackTests.swift */; };
 		DAB0C36528B456AA00BDAFFC /* EnumSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36428B456AA00BDAFFC /* EnumSwitcher.swift */; };
+		DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtensionLayout+CommonTasks.swift"; sourceTree = "<group>"; };
 		DAB0C36228B4318C00BDAFFC /* EStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EStackTests.swift; sourceTree = "<group>"; };
 		DAB0C36428B456AA00BDAFFC /* EnumSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumSwitcher.swift; sourceTree = "<group>"; };
+		DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutThatKnowsTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				DAA8AFA528B2D14E00615CD5 /* Extensions */,
 				DA14701828B2C9880004E28E /* Stacks */,
 				DA14700C28B2A7070004E28E /* ViewThatKnows.swift */,
+				DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */,
 				DA146FDA28B27E350004E28E /* Assets.xcassets */,
 				DA146FDC28B27E350004E28E /* Preview Content */,
 			);
@@ -339,6 +342,7 @@
 				DA146FD928B27E340004E28E /* ContentView.swift in Sources */,
 				DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */,
 				DAB0C36528B456AA00BDAFFC /* EnumSwitcher.swift in Sources */,
+				DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */,
 				DA14700D28B2A7070004E28E /* ViewThatKnows.swift in Sources */,
 				DAB0C36328B4318C00BDAFFC /* EStackTests.swift in Sources */,
 				DAB0C35B28B3CBB200BDAFFC /* EWVStack.swift in Sources */,

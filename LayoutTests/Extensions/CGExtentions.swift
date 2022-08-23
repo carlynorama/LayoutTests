@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 extension CGSize:Comparable {
     public static func < (lhs: CGSize, rhs: CGSize) -> Bool {
@@ -31,5 +31,31 @@ extension CGSize:Comparable {
     
     func diagonal() -> CGFloat {
         pow(Self.sumOfSquares(self.width, self.height), 0.5)
+    }
+}
+
+
+extension CGFloat {
+    var pretty: String {
+        String(format: "%.2f", self)
+    }
+}
+
+extension CGSize {
+    var pretty: String {
+        "\(width.pretty)⨉\(height.pretty)"
+    }
+}
+
+//wrapped conforms to pretty?
+extension Optional where Wrapped == CGFloat {
+    var pretty: String {
+        self?.pretty ?? "nil"
+    }
+}
+
+extension ProposedViewSize {
+    var pretty: String {
+        "\(width.pretty)⨉\(height.pretty)"
     }
 }

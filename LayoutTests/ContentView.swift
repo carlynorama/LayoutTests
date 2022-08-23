@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        EStackTests()
+        LayoutThatKnowsTestView()
+        //EStackTests()
         //       HPreferingStack {
 //            SizeClassDetectionView()
 //            Divider()
