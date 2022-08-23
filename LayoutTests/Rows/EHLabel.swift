@@ -95,17 +95,21 @@ struct EHLabel: Layout {
         return(newWidths)
     }
     
-    private func styleForPriority(_ priority:Double, height:CGFloat = .zero, proposal:ProposedViewSize = .zero) -> ProposedViewSize {
+    private func styleForPriority(_ priority:Double, height:CGFloat? = nil, proposal:ProposedViewSize = .zero) -> ProposedViewSize {
         switch priority {
-        case 10:
+        case let x where x > 100:
             return .infinity
         case -10:
             return .zero
         case let x where (5...10).contains(x):
             let factor = CGFloat(x) * 0.10
             let width = (proposal.width ?? 0) * factor
-            let height:CGFloat = proposal.height ?? .zero
-            return .init(CGSize(width: width, height: height))
+            let nheight:CGFloat = proposal.height ?? .zero
+            return .init(CGSize(width: width, height: nheight))
+        case let x where x == 11:
+            let width = (proposal.width ?? .zero)//*0.80
+            let nheight:CGFloat = height ?? .zero //proposal.height ??
+            return .init(CGSize(width: width, height: nheight))
         case let x where x < -10:
             return .unspecified
         default:

@@ -37,7 +37,7 @@ struct SomeRowText:View {
 }
 
 struct TallRowText:View {
-    let title:String = "A Title Goes Here"
+    let title:String = "A Title Goes Here. A Title Goes Here.A Title Goes Here A Title Goes HereA Title Goes HereA Title Goes HereA Title Goes Here"
     let description:String = "A captions goes here."
     var body:some View {
         VStack(alignment: .leading) {
@@ -93,6 +93,7 @@ struct RowTestView: View {
     
     var body: some View {
         VStack {
+            TallRowText()
 //            Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.").logSizes("Text")
 //            Label("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.", systemImage: "globe").logSizes("Label").border(.pink)
 //            Label(title: {SomeRowText()}, icon: {           Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit)
@@ -107,23 +108,29 @@ struct RowTestView: View {
 //                Spacer()
 //                SomeRowText().border(.blue)
 //            }.border(.pink)
-//            EHLabel {
+            EHLabel {
+                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
+                Spacer().border(.green)
+                //SomeRowText().border(.blue)
+                TallRowText().border(.blue)
+            }
+//            HStack {
 //                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
 //                Spacer().border(.green)
-//                //SomeRowText().border(.blue)
-//                TallRowText().border(.blue)
+//                Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.").logSizes("Inside Text")
 //            }
             
             EHLabel {
 //                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
 //                Spacer()
-                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
-                Spacer().border(.green)
+                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit)                    .layoutPriority(11).border(.blue)
+                Spacer().border(.green)//.layoutPriority(11)
                 //SomeRowText().border(.blue)
                 //TallRowText().border(.blue)
                 //Text("Some short Text.")
+                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit)                    .layoutPriority(11).border(.blue)
                 Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.").logSizes("Inside Text")
-                    .layoutPriority(8)
+                    .layoutPriority(11)
                 //.layoutPriority(6)
 //                VStack{
 //                    Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.")
