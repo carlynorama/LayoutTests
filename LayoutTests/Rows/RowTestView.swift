@@ -123,7 +123,7 @@ struct RowTestView: View {
                 //TallRowText().border(.blue)
                 //Text("Some short Text.")
                 Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.").logSizes("Inside Text")
-                    .layoutPriority(7)
+                    .layoutPriority(8)
                 //.layoutPriority(6)
 //                VStack{
 //                    Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.")
