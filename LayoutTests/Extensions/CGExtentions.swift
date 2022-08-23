@@ -34,6 +34,33 @@ extension CGSize:Comparable {
     }
 }
 
+extension CGSize {
+    var minX:CGFloat {
+        0
+    }
+    
+    var minY:CGFloat {
+        0
+    }
+    
+    var midX:CGFloat {
+        width/2
+    }
+    
+    var midY:CGFloat {
+        height/2
+    }
+    
+    var maxX:CGFloat {
+        width
+    }
+    
+    var maxY:CGFloat {
+        height
+    }
+
+}
+
 
 extension CGFloat {
     var pretty: String {

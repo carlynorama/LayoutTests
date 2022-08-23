@@ -35,6 +35,9 @@
 		DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */; };
 		DAFA609128B5178C00E3291A /* RowTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609028B5178C00E3291A /* RowTestView.swift */; };
 		DAFA609428B5180E00E3291A /* EHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609328B5180E00E3291A /* EHLabel.swift */; };
+		DAFA609628B55D7F00E3291A /* WrappingWrappersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609528B55D7F00E3291A /* WrappingWrappersTest.swift */; };
+		DAFA609828B55D9800E3291A /* WrappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609728B55D9800E3291A /* WrappingLayout.swift */; };
+		DAFA609A28B5800600E3291A /* AnchorsUnitPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609928B5800600E3291A /* AnchorsUnitPoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutThatKnowsTestView.swift; sourceTree = "<group>"; };
 		DAFA609028B5178C00E3291A /* RowTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTestView.swift; sourceTree = "<group>"; };
 		DAFA609328B5180E00E3291A /* EHLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EHLabel.swift; sourceTree = "<group>"; };
+		DAFA609528B55D7F00E3291A /* WrappingWrappersTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingWrappersTest.swift; sourceTree = "<group>"; };
+		DAFA609728B55D9800E3291A /* WrappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingLayout.swift; sourceTree = "<group>"; };
+		DAFA609928B5800600E3291A /* AnchorsUnitPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorsUnitPoints.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +206,7 @@
 			children = (
 				DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */,
 				DAA8AFA328B2D13600615CD5 /* BindingsForPreviews.swift */,
+				DAFA609928B5800600E3291A /* AnchorsUnitPoints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -217,7 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				DAFA609028B5178C00E3291A /* RowTestView.swift */,
+				DAFA609528B55D7F00E3291A /* WrappingWrappersTest.swift */,
 				DAFA609328B5180E00E3291A /* EHLabel.swift */,
+				DAFA609728B55D9800E3291A /* WrappingLayout.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -353,14 +362,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB0C35D28B3CBB200BDAFFC /* MyRadialLayout.swift in Sources */,
+				DAFA609628B55D7F00E3291A /* WrappingWrappersTest.swift in Sources */,
 				DA146FD928B27E340004E28E /* ContentView.swift in Sources */,
 				DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */,
 				DAB0C36528B456AA00BDAFFC /* FlowSwitcher.swift in Sources */,
 				DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */,
 				DA14700D28B2A7070004E28E /* ViewThatKnows.swift in Sources */,
+				DAFA609828B55D9800E3291A /* WrappingLayout.swift in Sources */,
 				DAB0C36328B4318C00BDAFFC /* EStackTests.swift in Sources */,
 				DAB0C35B28B3CBB200BDAFFC /* EWVStack.swift in Sources */,
 				DA14701528B2C3350004E28E /* ConditionalStackLayout.swift in Sources */,
+				DAFA609A28B5800600E3291A /* AnchorsUnitPoints.swift in Sources */,
 				DA14701728B2C4CC0004E28E /* AStack.swift in Sources */,
 				DAFA609428B5180E00E3291A /* EHLabel.swift in Sources */,
 				DAB0C36128B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift in Sources */,

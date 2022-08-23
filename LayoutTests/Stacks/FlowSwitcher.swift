@@ -42,8 +42,8 @@ struct FlowSwitcher: View {
                 .pickerStyle(.segmented)
                 let layout = AnyLayout(algo.layout)
                 layout {
-                    ForEach(0..<80) { ix in
-                        Text("Item \(ix)")
+                    ForEach(0..<5) { ix in
+                        Text("Really really really really really really really long name in the item Item \(ix)")
                             .padding()
                             .background(Capsule()
                                 .fill(Color(hue: .init(ix)/10, saturation: 0.8, brightness: 0.8)))

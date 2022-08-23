@@ -101,14 +101,14 @@ struct EHLabel: Layout {
             return .infinity
         case -10:
             return .zero
-        case let x where (5...10).contains(x):
+        case let x where (1...10).contains(x):
             let factor = CGFloat(x) * 0.10
             let width = (proposal.width ?? 0) * factor
             let nheight:CGFloat = proposal.height ?? .zero
             return .init(CGSize(width: width, height: nheight))
         case let x where x == 11:
-            let width = (proposal.width ?? .zero)//*0.80
-            let nheight:CGFloat = height ?? .zero //proposal.height ??
+            let width = (proposal.width ?? .zero)/2 ///*0.80
+            let nheight:CGFloat = proposal.height ?? height ?? .zero
             return .init(CGSize(width: width, height: nheight))
         case let x where x < -10:
             return .unspecified
