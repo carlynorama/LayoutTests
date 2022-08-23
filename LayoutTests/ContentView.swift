@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-       HPreferingStack {
-            SizeClassDetectionView()
-            Divider()
-            DeviceDetection()
-        }
+        EStackTests()
+        //       HPreferingStack {
+//            SizeClassDetectionView()
+//            Divider()
+//            DeviceDetection()
+//        }
     }
 }
 

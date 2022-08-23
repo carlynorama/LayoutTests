@@ -25,6 +25,13 @@
 		DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */; };
 		DAA8AFA428B2D13600615CD5 /* BindingsForPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AFA328B2D13600615CD5 /* BindingsForPreviews.swift */; };
 		DAA8AFA828B2E34300615CD5 /* HPreferingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AFA728B2E34300615CD5 /* HPreferingStack.swift */; };
+		DAB0C35B28B3CBB200BDAFFC /* EWVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C35828B3CBB200BDAFFC /* EWVStack.swift */; };
+		DAB0C35C28B3CBB200BDAFFC /* EWHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C35928B3CBB200BDAFFC /* EWHStack.swift */; };
+		DAB0C35D28B3CBB200BDAFFC /* MyRadialLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C35A28B3CBB200BDAFFC /* MyRadialLayout.swift */; };
+		DAB0C35F28B4044100BDAFFC /* EHHstack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C35E28B4044100BDAFFC /* EHHstack.swift */; };
+		DAB0C36128B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */; };
+		DAB0C36328B4318C00BDAFFC /* EStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36228B4318C00BDAFFC /* EStackTests.swift */; };
+		DAB0C36528B456AA00BDAFFC /* EnumSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36428B456AA00BDAFFC /* EnumSwitcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +73,13 @@
 		DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtentions.swift; sourceTree = "<group>"; };
 		DAA8AFA328B2D13600615CD5 /* BindingsForPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingsForPreviews.swift; sourceTree = "<group>"; };
 		DAA8AFA728B2E34300615CD5 /* HPreferingStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPreferingStack.swift; sourceTree = "<group>"; };
+		DAB0C35828B3CBB200BDAFFC /* EWVStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EWVStack.swift; sourceTree = "<group>"; };
+		DAB0C35928B3CBB200BDAFFC /* EWHStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EWHStack.swift; sourceTree = "<group>"; };
+		DAB0C35A28B3CBB200BDAFFC /* MyRadialLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRadialLayout.swift; sourceTree = "<group>"; };
+		DAB0C35E28B4044100BDAFFC /* EHHstack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EHHstack.swift; sourceTree = "<group>"; };
+		DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtensionLayout+CommonTasks.swift"; sourceTree = "<group>"; };
+		DAB0C36228B4318C00BDAFFC /* EStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EStackTests.swift; sourceTree = "<group>"; };
+		DAB0C36428B456AA00BDAFFC /* EnumSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumSwitcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,12 +170,19 @@
 		DA14701828B2C9880004E28E /* Stacks */ = {
 			isa = PBXGroup;
 			children = (
+				DAB0C35928B3CBB200BDAFFC /* EWHStack.swift */,
+				DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */,
+				DAB0C35E28B4044100BDAFFC /* EHHstack.swift */,
+				DAB0C35828B3CBB200BDAFFC /* EWVStack.swift */,
+				DAB0C35A28B3CBB200BDAFFC /* MyRadialLayout.swift */,
 				DA14701428B2C3350004E28E /* ConditionalStackLayout.swift */,
 				DAA8AFA728B2E34300615CD5 /* HPreferingStack.swift */,
 				DA14701628B2C4CC0004E28E /* AStack.swift */,
 				DAA8AF9F28B2CE8300615CD5 /* FStack.swift */,
 				DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */,
 				DA14701028B2BB530004E28E /* TStackTestView.swift */,
+				DAB0C36228B4318C00BDAFFC /* EStackTests.swift */,
+				DAB0C36428B456AA00BDAFFC /* EnumSwitcher.swift */,
 			);
 			path = Stacks;
 			sourceTree = "<group>";
@@ -314,13 +335,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB0C35D28B3CBB200BDAFFC /* MyRadialLayout.swift in Sources */,
 				DA146FD928B27E340004E28E /* ContentView.swift in Sources */,
 				DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */,
+				DAB0C36528B456AA00BDAFFC /* EnumSwitcher.swift in Sources */,
 				DA14700D28B2A7070004E28E /* ViewThatKnows.swift in Sources */,
+				DAB0C36328B4318C00BDAFFC /* EStackTests.swift in Sources */,
+				DAB0C35B28B3CBB200BDAFFC /* EWVStack.swift in Sources */,
 				DA14701528B2C3350004E28E /* ConditionalStackLayout.swift in Sources */,
 				DA14701728B2C4CC0004E28E /* AStack.swift in Sources */,
+				DAB0C36128B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift in Sources */,
+				DAB0C35C28B3CBB200BDAFFC /* EWHStack.swift in Sources */,
 				DA14700528B286C90004E28E /* SizeClassDetectionView.swift in Sources */,
 				DAA8AFA828B2E34300615CD5 /* HPreferingStack.swift in Sources */,
+				DAB0C35F28B4044100BDAFFC /* EHHstack.swift in Sources */,
 				DAA8AFA428B2D13600615CD5 /* BindingsForPreviews.swift in Sources */,
 				DA146FD728B27E340004E28E /* LayoutTestsApp.swift in Sources */,
 				DAA8AF9C28B2CBFC00615CD5 /* TStack.swift in Sources */,
