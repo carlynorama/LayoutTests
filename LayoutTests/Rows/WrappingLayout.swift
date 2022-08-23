@@ -24,10 +24,13 @@ import SwiftUI
 //}
 
 
-enum MyStyle {
+enum MyStyle:String, CaseIterable, Identifiable {
     case manualBlock
     case naiveVerticalBlock
     case compactVerticalBlock
+    case fullWidth
+    
+    var id: Self { self }
 }
 
 struct WrappingLayout:Layout {
@@ -40,13 +43,13 @@ struct WrappingLayout:Layout {
     
     
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        return sizeThatFits(subviews: subviews)
+        return sizeThatFits(subviews: subviews, proposal: proposal)
     }
     
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         guard !subviews.isEmpty else { return }
         
-        let sizes = subviewSizes(subviews: subviews)
+        let sizes = subviewProposedSizes(subviews: subviews)
         let offsets = subviewOffsets(sizes: sizes, bounds: bounds)
         
         for index in subviews.indices {
@@ -74,27 +77,52 @@ struct WrappingLayout:Layout {
         }
     }
     
-    func sizeThatFits(subviews:Subviews) -> CGSize {
+    func sizeThatFits(subviews:Subviews, proposal:ProposedViewSize) -> CGSize {
         switch style {
         case .manualBlock:
             return manualSize
         case .naiveVerticalBlock:
             return CGSize(width: manualSize.width, height: manualSize.height * CGFloat(subviews.count))
         case .compactVerticalBlock:
+            let width = manualSize.width
+            let height = manualSize.height
+            let cgsizes = subviews.map {
+                $0.sizeThatFits(.init(CGSize(width: width, height: height))).height
+            }
+            let heightSum:CGFloat = cgsizes.reduce(0) { $0 + $1  }
+            return CGSize(width: manualSize.width, height: heightSum)
+        case .fullWidth:
             return CGSize(width: manualSize.width, height: manualSize.height * CGFloat(subviews.count))
         }
     }
     
-    func subviewSizes(subviews:Subviews) -> [ProposedViewSize] {
+    func subviewProposedSizes(subviews:Subviews) -> [ProposedViewSize] {
+        subviewCGSizes(subviews: subviews).map { ProposedViewSize($0) }
+    }
+    
+    func subviewCGSizes(subviews:Subviews) -> [CGSize] {
         switch style {
         case .manualBlock:
-            let sizes = [ProposedViewSize](repeating: ProposedViewSize(manualSize), count: subviews.count)
+            let sizes = [CGSize](repeating: manualSize, count: subviews.count)
             return sizes
         case .naiveVerticalBlock:
-            let sizes = [ProposedViewSize](repeating: ProposedViewSize(manualSize), count: subviews.count)
+            let sizes = [CGSize](repeating: manualSize, count: subviews.count)
             return sizes
         case .compactVerticalBlock:
-            let sizes = [ProposedViewSize](repeating: ProposedViewSize(manualSize), count: subviews.count)
+            let sizes = subviews.map {
+                $0.sizeThatFits(.init(CGSize(
+                    width: manualSize.width,
+                    height: manualSize.height
+                )))
+              }
+            return sizes
+        case .fullWidth:
+            let sizes = subviews.map {
+                $0.sizeThatFits(.init(CGSize(
+                    width: manualSize.width,
+                    height: manualSize.height
+                )))
+              }
             return sizes
         }
     }
@@ -120,12 +148,25 @@ struct WrappingLayout:Layout {
         
             let base = bounds.origin
             var next = base
-            for (index, size) in sizes.enumerated() {
+            for (size) in sizes {
                 let localOffset = anchor.defaultOrigin(for: CGSize(width: size.width!, height: size.height!))
                 let x = base.x + localOffset.x
                 let y = next.y + localOffset.y
                 offsets.append(CGPoint(x:x, y:y))
-                next.y = next.y + y
+                next.y =  next.y + size.height!
+            }
+            return offsets
+        case .fullWidth:
+            var offsets:[CGPoint] = []
+        
+            let base = bounds.origin
+            var next = base
+            for (size) in sizes {
+                let localOffset = anchor.defaultOrigin(for: CGSize(width: size.width!, height: size.height!))
+                let x = base.x + localOffset.x
+                let y = next.y + localOffset.y
+                offsets.append(CGPoint(x:x, y:y))
+                next.y =  next.y + size.height!
             }
             return offsets
         }

@@ -11,10 +11,16 @@ struct WrappingWrappersTest: View {
     @State var proposedHeight:CGFloat = 100
     @State var proposedWidth:CGFloat = 100
     @State var anchor:UnitPoint = .topLeading
-    @State var style:MyStyle = .naiveVerticalBlock
+    @State var style:MyStyle = .compactVerticalBlock
     
     var body: some View {
         VStack {
+            Picker("Style", selection: $style) {
+                ForEach(MyStyle.allCases) { algo in
+                    Text("\(algo.rawValue)")
+                }
+            }
+            .pickerStyle(.segmented)
             WrappingLayout(anchor: anchor, manualSize:CGSize(width: proposedWidth, height:proposedHeight), style: style) {
                 
                 Rectangle().fill(.blue)
