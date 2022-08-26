@@ -20,6 +20,9 @@
 		DA14701128B2BB530004E28E /* TStackTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14701028B2BB530004E28E /* TStackTestView.swift */; };
 		DA14701528B2C3350004E28E /* ConditionalStackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14701428B2C3350004E28E /* ConditionalStackLayout.swift */; };
 		DA14701728B2C4CC0004E28E /* AStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14701628B2C4CC0004E28E /* AStack.swift */; };
+		DA9AAEF228B9358D001523C9 /* MyVStackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAEF128B9358D001523C9 /* MyVStackLayout.swift */; };
+		DA9AAEF428B93BCC001523C9 /* MyVStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAEF328B93BCC001523C9 /* MyVStackTest.swift */; };
+		DA9AAEF628B94446001523C9 /* LayoutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAEF528B94446001523C9 /* LayoutInfo.swift */; };
 		DAA8AF9C28B2CBFC00615CD5 /* TStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */; };
 		DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9F28B2CE8300615CD5 /* FStack.swift */; };
 		DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */; };
@@ -74,6 +77,9 @@
 		DA14701028B2BB530004E28E /* TStackTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStackTestView.swift; sourceTree = "<group>"; };
 		DA14701428B2C3350004E28E /* ConditionalStackLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalStackLayout.swift; sourceTree = "<group>"; };
 		DA14701628B2C4CC0004E28E /* AStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStack.swift; sourceTree = "<group>"; };
+		DA9AAEF128B9358D001523C9 /* MyVStackLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVStackLayout.swift; sourceTree = "<group>"; };
+		DA9AAEF328B93BCC001523C9 /* MyVStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVStackTest.swift; sourceTree = "<group>"; };
+		DA9AAEF528B94446001523C9 /* LayoutInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInfo.swift; sourceTree = "<group>"; };
 		DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStack.swift; sourceTree = "<group>"; };
 		DAA8AF9F28B2CE8300615CD5 /* FStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FStack.swift; sourceTree = "<group>"; };
 		DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtentions.swift; sourceTree = "<group>"; };
@@ -144,12 +150,15 @@
 			children = (
 				DA146FD628B27E340004E28E /* LayoutTestsApp.swift */,
 				DA146FD828B27E340004E28E /* ContentView.swift */,
+				DA9AAEF128B9358D001523C9 /* MyVStackLayout.swift */,
+				DA9AAEF528B94446001523C9 /* LayoutInfo.swift */,
+				DA9AAEF328B93BCC001523C9 /* MyVStackTest.swift */,
 				DAA8AFA628B2D6C200615CD5 /* DetectionViews */,
 				DAA8AFA528B2D14E00615CD5 /* Extensions */,
 				DA14701828B2C9880004E28E /* Stacks */,
 				DA14700C28B2A7070004E28E /* ViewThatKnows.swift */,
 				DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */,
-				DAFA609228B517DA00E3291A /* Rows */,
+				DAFA609228B517DA00E3291A /* ScratchPad */,
 				DA146FDA28B27E350004E28E /* Assets.xcassets */,
 				DA146FDC28B27E350004E28E /* Preview Content */,
 			);
@@ -184,7 +193,6 @@
 		DA14701828B2C9880004E28E /* Stacks */ = {
 			isa = PBXGroup;
 			children = (
-				DAB0C35E28B4044100BDAFFC /* EHHstack.swift */,
 				DAB0C35928B3CBB200BDAFFC /* EWHStack.swift */,
 				DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */,
 				DAB0C35828B3CBB200BDAFFC /* EWVStack.swift */,
@@ -220,15 +228,16 @@
 			path = DetectionViews;
 			sourceTree = "<group>";
 		};
-		DAFA609228B517DA00E3291A /* Rows */ = {
+		DAFA609228B517DA00E3291A /* ScratchPad */ = {
 			isa = PBXGroup;
 			children = (
+				DAB0C35E28B4044100BDAFFC /* EHHstack.swift */,
 				DAFA609028B5178C00E3291A /* RowTestView.swift */,
 				DAFA609528B55D7F00E3291A /* WrappingWrappersTest.swift */,
 				DAFA609328B5180E00E3291A /* EHLabel.swift */,
 				DAFA609728B55D9800E3291A /* WrappingLayout.swift */,
 			);
-			path = Rows;
+			path = ScratchPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +373,7 @@
 				DAB0C35D28B3CBB200BDAFFC /* MyRadialLayout.swift in Sources */,
 				DAFA609628B55D7F00E3291A /* WrappingWrappersTest.swift in Sources */,
 				DA146FD928B27E340004E28E /* ContentView.swift in Sources */,
+				DA9AAEF428B93BCC001523C9 /* MyVStackTest.swift in Sources */,
 				DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */,
 				DAB0C36528B456AA00BDAFFC /* FlowSwitcher.swift in Sources */,
 				DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */,
@@ -375,6 +385,7 @@
 				DAFA609A28B5800600E3291A /* AnchorsUnitPoints.swift in Sources */,
 				DA14701728B2C4CC0004E28E /* AStack.swift in Sources */,
 				DAFA609428B5180E00E3291A /* EHLabel.swift in Sources */,
+				DA9AAEF228B9358D001523C9 /* MyVStackLayout.swift in Sources */,
 				DAB0C36128B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift in Sources */,
 				DAB0C35C28B3CBB200BDAFFC /* EWHStack.swift in Sources */,
 				DA14700528B286C90004E28E /* SizeClassDetectionView.swift in Sources */,
@@ -386,6 +397,7 @@
 				DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */,
 				DAFA609128B5178C00E3291A /* RowTestView.swift in Sources */,
 				DA14701128B2BB530004E28E /* TStackTestView.swift in Sources */,
+				DA9AAEF628B94446001523C9 /* LayoutInfo.swift in Sources */,
 				DA14700328B2815B0004E28E /* DeviceDetection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

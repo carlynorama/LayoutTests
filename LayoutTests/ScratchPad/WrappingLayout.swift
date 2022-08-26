@@ -28,7 +28,8 @@ enum MyStyle:String, CaseIterable, Identifiable {
     case manualBlock
     case naiveVerticalBlock
     case compactVerticalBlock
-    case fullWidth
+    case naiveBoundingHeight
+    case boundingHeight
     
     var id: Self { self }
 }
@@ -41,15 +42,12 @@ struct WrappingLayout:Layout {
     
     
     
+
     
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        return sizeThatFits(subviews: subviews, proposal: proposal)
-    }
-    
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) {
         guard !subviews.isEmpty else { return }
         
-        let sizes = subviewProposedSizes(subviews: subviews)
+        let sizes = subviewProposedSizes(subviews: subviews, proposal: proposal)
         let offsets = subviewOffsets(sizes: sizes, bounds: bounds)
         
         for index in subviews.indices {
@@ -68,16 +66,7 @@ struct WrappingLayout:Layout {
 //        }
     }
     
-    private func spacing(subviews: Subviews) -> [CGFloat] {
-        subviews.indices.map { index in
-            guard index < subviews.count - 1 else { return 0 }
-            return subviews[index].spacing.distance(
-                to: subviews[index + 1].spacing,
-                along: .horizontal)
-        }
-    }
-    
-    func sizeThatFits(subviews:Subviews, proposal:ProposedViewSize) -> CGSize {
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) -> CGSize {
         switch style {
         case .manualBlock:
             return manualSize
@@ -91,16 +80,25 @@ struct WrappingLayout:Layout {
             }
             let heightSum:CGFloat = cgsizes.reduce(0) { $0 + $1  }
             return CGSize(width: manualSize.width, height: heightSum)
-        case .fullWidth:
-            return CGSize(width: manualSize.width, height: manualSize.height * CGFloat(subviews.count))
+        case .naiveBoundingHeight:
+            return CGSize(width: manualSize.width, height: manualSize.height)
+        case .boundingHeight:
+            let width = manualSize.width
+            let height:CGFloat = proposal.height ?? manualSize.height/CGFloat(subviews.count)
+            let cgsizes = subviews.map {
+                $0.sizeThatFits(.init(CGSize(width: width, height: height)))
+            }
+            let maxwidth = (cgsizes.map { $0.width }).max() ?? proposal.width
+            let heightSum:CGFloat = (cgsizes.map { $0.height }).reduce(0) { $0 + $1  }
+            return CGSize(width: maxwidth ?? 0, height: heightSum)
         }
     }
     
-    func subviewProposedSizes(subviews:Subviews) -> [ProposedViewSize] {
-        subviewCGSizes(subviews: subviews).map { ProposedViewSize($0) }
+    func subviewProposedSizes(subviews:Subviews, proposal:ProposedViewSize) -> [ProposedViewSize] {
+        subviewCGSizes(subviews: subviews, proposal: proposal).map { ProposedViewSize($0) }
     }
     
-    func subviewCGSizes(subviews:Subviews) -> [CGSize] {
+    func subviewCGSizes(subviews:Subviews, proposal:ProposedViewSize) -> [CGSize] {
         switch style {
         case .manualBlock:
             let sizes = [CGSize](repeating: manualSize, count: subviews.count)
@@ -109,21 +107,38 @@ struct WrappingLayout:Layout {
             let sizes = [CGSize](repeating: manualSize, count: subviews.count)
             return sizes
         case .compactVerticalBlock:
+//            let sizes = subviews.map {
+//                $0.sizeThatFits(.init(CGSize(
+//                    width: manualSize.width,
+//                    height: manualSize.height
+//                )))
+//              }
+//            return sizes
             let sizes = subviews.map {
                 $0.sizeThatFits(.init(CGSize(
                     width: manualSize.width,
                     height: manualSize.height
                 )))
               }
-            return sizes
-        case .fullWidth:
+            return sizes.map { CGSize(width: manualSize.width, height: $0.height) }
+            
+        case .naiveBoundingHeight:
+            
+            let sizes = [CGSize](repeating: CGSize(width:manualSize.width, height: manualSize.height/CGFloat(subviews.count)), count: subviews.count)
+//            let sizes = subviews.map {
+//                $0.sizeThatFits(.init(CGSize(
+//                    width: manualSize.width,
+//                    height: manualSize.height/CGFloat(subviews.count)
+//                )))
+//              }
+            return sizes//.map { CGSize(width: manualSize.width, height: $0.height) }
+        case .boundingHeight:
+            let width = manualSize.width
+            let height:CGFloat = .infinity
             let sizes = subviews.map {
-                $0.sizeThatFits(.init(CGSize(
-                    width: manualSize.width,
-                    height: manualSize.height
-                )))
-              }
-            return sizes
+                $0.sizeThatFits(.init(CGSize(width: width, height: height)))
+            }
+            return sizes//.map { CGSize(width: manualSize.width, height: $0.height) }
         }
     }
     
@@ -156,7 +171,7 @@ struct WrappingLayout:Layout {
                 next.y =  next.y + size.height!
             }
             return offsets
-        case .fullWidth:
+        case .naiveBoundingHeight:
             var offsets:[CGPoint] = []
         
             let base = bounds.origin
@@ -169,15 +184,52 @@ struct WrappingLayout:Layout {
                 next.y =  next.y + size.height!
             }
             return offsets
+        case .boundingHeight:
+            var offsets:[CGPoint] = []
+        
+            let base = bounds.origin
+            var next = base
+            for (size) in sizes {
+                let localOffset = anchor.defaultOrigin(for: CGSize(width: size.width ?? 0, height: size.height ?? 0))
+                let x = base.x + localOffset.x
+                let y = next.y + localOffset.y
+                offsets.append(CGPoint(x:x, y:y))
+                next.y =  next.y + (size.height ?? 0)
+            }
+            return offsets
         }
     }
     
-//    func sizes(subviews: Subviews) -> [CGSize] {
-//        switch style {
-//        case .manualBlock:
-//            return [manualSize]
-//        case .verticalBlock:
-//            return [CGSize(width: manualSize.width, height: manualSize.height * CGFloat(subviews.count))]
-//        }
-//    }
+    struct CacheData {
+        //let maxSize: CGSize
+        let spacing: [CGFloat]
+        let totalSpacing: CGFloat
+    }
+
+    /// Creates a cache for a given set of subviews.
+    ///
+    /// When the subviews change, SwiftUI calls the ``updateCache(_:subviews:)``
+    /// method. The ``MyEqualWidthVStack`` layout relies on the default
+    /// implementation of that method, which just calls this method again
+    /// to recreate the cache.
+    /// - Tag: makeCache
+    func makeCache(subviews: Subviews) -> CacheData {
+        //let maxSize = maxSize(subviews: subviews)
+        let spacing = spacing(subviews: subviews)
+        let totalSpacing = spacing.reduce(0) { $0 + $1 }
+
+        return CacheData(
+            //maxSize: maxSize,
+            spacing: spacing,
+            totalSpacing: totalSpacing)
+    }
+    
+    private func spacing(subviews: Subviews) -> [CGFloat] {
+        subviews.indices.map { index in
+            guard index < subviews.count - 1 else { return 0 }
+            return subviews[index].spacing.distance(
+                to: subviews[index + 1].spacing,
+                along: .horizontal)
+        }
+    }
 }

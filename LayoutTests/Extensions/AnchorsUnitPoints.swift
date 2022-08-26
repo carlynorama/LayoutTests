@@ -65,6 +65,48 @@ extension UnitPoint {
 
         }
     }
+    
+    static var selectable:[(item:Self, menuText:String)] {
+        return[
+            (.center, "center"),
+            (.zero, "zero"),
+            (.leading, "leading"),
+            (.top, "top"),
+            (.topLeading, "topLeading"),
+            (.topTrailing, "topTrailing"),
+            (.bottom, "bottom"),
+            (.bottomLeading, "bottomLeading"),
+            (.bottomTrailing, "bottomTrailing"),
+            (.trailing, "trailing"),
+        ]
+    }
+}
+
+extension Alignment {
+    var unitPoint:UnitPoint {
+        switch self {
+        case .center:
+            return .center
+        case .leading:
+            return .leading
+        case .top:
+            return .top
+        case .topLeading:
+            return .topLeading
+        case .topTrailing:
+            return .topTrailing
+        case .bottom:
+            return .bottom
+        case .bottomLeading:
+            return .bottomLeading
+        case .bottomTrailing:
+            return .bottomTrailing
+        case .trailing:
+            return .trailing
+        default:
+            return .center
+        }
+    }
 }
 
 
