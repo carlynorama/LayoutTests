@@ -15,8 +15,7 @@ struct MyVStackTest: View {
     var body: some View {
         VStack {
             
-            MyVStackLayout(anchor: alignment.unitPoint, manualSize: CGSize(width: proposedWidth, height: proposedHeight)) {
-                
+            MyVStackLayout(anchor: alignment.unitPoint) {
                             Rectangle().fill(.blue)
                                 .frame(maxWidth: .infinity)
                                 .frame(width: proposedWidth/2).opacity(0.5).border(.red)
@@ -30,7 +29,8 @@ struct MyVStackTest: View {
                 Image(systemName: "star").resizable().aspectRatio(contentMode: .fit).opacity(0.5).border(.blue)
                 Image(systemName: "trash").resizable().opacity(0.5).border(.cyan)
             }
-            //        .logSizes("Wrapping Layout")
+            .logSizes("Wrapping Layout")
+            .frame(width: proposedWidth, height: proposedHeight)
             .border(.pink)
             .padding(10)
             

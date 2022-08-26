@@ -6,7 +6,7 @@
 ////
 //
 //import Foundation
-//import SwiftUI
+import SwiftUI
 //
 //
 ////--------------------
@@ -20,48 +20,49 @@
 ////    }
 ////}
 //
-//struct LayoutInfo {
-//    var index: Int
-//    var lowerW: CGFloat
-//    var upperW: CGFloat
-//    var priority: Double
-//}
+struct LayoutInfo {
+    var index: Int
+    var lowerH: CGFloat
+    var upperH: CGFloat
+    var priority: Double
+}
 //
 //
-//extension LayoutInfo {
-//    static func retrieve(for subviews:LayoutSubviews, with proposed:ProposedViewSize) -> [Self] {
-//        subviews.indices.map { idx in
-//            let child = subviews[idx]
-//            let lower = child.size(proposed: ProposedViewSize(width: 0, height: proposed.height)).width
-//            let upper = child.size(proposed: ProposedViewSize(width: .greatestFiniteMagnitude, height: proposed.height)).width
-//            return LayoutInfo(
-//                index: idx,
-//                lowerW: lower,
-//                upperW: upper,
-//                priority: child.layoutPriority
-//            )
-//        }.sorted()
-//        
-//    }
-//}
-//
-//
-//extension LayoutInfo: Comparable {
-//    static func < (lhs: LayoutInfo, rhs: LayoutInfo) -> Bool {
-//        if lhs.priority > rhs.priority { return true }
-//        if lhs.priority < rhs.priority { return false }
-//        if lhs.widthFlexibility < rhs.widthFlexibility { return true }
-//        return false
-//    }
-//    
-//    
-//    var isFixed: Bool {
-//        lowerW == upperW
-//    }
-//    
-//    
-//    var widthFlexibility:CGFloat {
-//        upperW - lowerW
-//    }
-//    
-//}
+extension LayoutInfo {
+    static func retrieve(for subviews:LayoutSubviews, with proposed:ProposedViewSize) -> [Self] {
+        subviews.indices.map { idx in
+            let child = subviews[idx]
+
+            let lower = child.sizeThatFits(ProposedViewSize(width: 0, height: proposed.height)).width
+            let upper = child.sizeThatFits(ProposedViewSize(width: .greatestFiniteMagnitude, height: proposed.height)).width
+            return LayoutInfo(
+                index: idx,
+                lowerH: lower,
+                upperH: upper,
+                priority: child.priority
+            )
+        }.sorted()
+        
+    }
+}
+
+
+extension LayoutInfo: Comparable {
+    static func < (lhs: LayoutInfo, rhs: LayoutInfo) -> Bool {
+        if lhs.priority > rhs.priority { return true }
+        if lhs.priority < rhs.priority { return false }
+        if lhs.widthFlexibility < rhs.widthFlexibility { return true }
+        return false
+    }
+    
+    
+    var isFixed: Bool {
+        lowerH == upperH
+    }
+    
+    
+    var widthFlexibility:CGFloat {
+        upperH - lowerH
+    }
+    
+}

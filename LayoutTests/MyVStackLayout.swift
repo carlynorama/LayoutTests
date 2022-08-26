@@ -10,16 +10,12 @@ import SwiftUI
 
 struct MyVStackLayout:Layout {
     let anchor:UnitPoint
-    let manualSize:CGSize
     
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) -> CGSize {
-        let width = manualSize.width
-        let height = manualSize.height
-        cache.sizes = subviews.map {
-            $0.sizeThatFits(.init(CGSize(width: width, height: height)))
-        }
-        let heightSum:CGFloat = cache.sizes.reduce(0) { $0 + $1.height }
-        return CGSize(width: manualSize.width, height: heightSum)
+        layout(proposed: proposal, subviews: subviews, cache: &cache)
+        let width:CGFloat = cache.sizes.reduce(0) { max($0, $1.width) }
+        let height:CGFloat = cache.sizes.reduce(0) { $0 + $1.height }
+        return CGSize(width: width, height: height)
     }
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) {
@@ -38,15 +34,17 @@ struct MyVStackLayout:Layout {
     }
     
     
-    func subviewCGSizes(subviews:Subviews, size:CGSize) -> [CGSize] {
-        let sizes = subviews.map {
-            $0.sizeThatFits(.init(CGSize(
-                width: size.width,
-                height: size.height
-            )))
-          }
-        return sizes//.map { CGSize(width: manualSize.width, height: $0.height) }
-    }
+    
+    
+//    func subviewCGSizes(subviews:Subviews, size:CGSize) -> [CGSize] {
+//        let sizes = subviews.map {
+//            $0.sizeThatFits(.init(CGSize(
+//                width: size.width,
+//                height: size.height
+//            )))
+//          }
+//        return sizes//.map { CGSize(width: manualSize.width, height: $0.height) }
+//    }
     
     func subviewOffsets(sizes:[CGSize], bounds:CGRect) -> [CGPoint] {
         var offsets:[CGPoint] = []
@@ -61,6 +59,31 @@ struct MyVStackLayout:Layout {
             next.y =  next.y + size.height
         }
         return offsets
+    }
+    
+    func layout(proposed: ProposedViewSize, subviews children:Subviews, cache: inout CacheData) {
+        let flexibility: [LayoutInfo] = LayoutInfo.retrieve(for: children , with: proposed)
+        var groups = flexibility.group(by: \.priority)
+        var sizes: [CGSize] = Array(repeating: .zero, count: children.count)
+        let allMinWidths = flexibility.map(\.lowerH).reduce(0,+)
+        var remainingWidth = proposed.width! - allMinWidths // TODO force unwrap
+        
+        while !groups.isEmpty {
+            let group = groups.removeFirst()
+            remainingWidth += group.map(\.lowerH).reduce(0,+)
+            
+            var remainingIndices = group.map { $0.index }
+            while !remainingIndices.isEmpty {
+                let width = remainingWidth / CGFloat(remainingIndices.count)
+                let idx = remainingIndices.removeFirst()
+                let child = children[idx]
+                let size = child.sizeThatFits(ProposedViewSize(width: width, height: proposed.height))
+                sizes[idx] = size
+                remainingWidth -= size.width
+                if remainingWidth < 0 { remainingWidth = 0 }
+            }
+        }
+       cache.sizes = sizes
     }
     
     
