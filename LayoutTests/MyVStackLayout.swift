@@ -12,16 +12,17 @@ struct MyVStackLayout:Layout {
     let anchor:UnitPoint
     
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) -> CGSize {
-        layout(proposed: proposal, subviews: subviews, cache: &cache)
-        let width:CGFloat = cache.sizes.reduce(0) { max($0, $1.width) }
-        let height:CGFloat = cache.sizes.reduce(0) { $0 + $1.height }
+        let sizes = layout(proposed: proposal, subviews: subviews)
+        let width:CGFloat = sizes.reduce(0) { max($0, $1.width) }
+        let height:CGFloat = sizes.reduce(0) { $0 + $1.height }
         return CGSize(width: width, height: height)
     }
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) {
         guard !subviews.isEmpty else { return }
         
-        let offsets = subviewOffsets(sizes: cache.sizes, bounds: bounds)
+        let newSizes = layout(proposed: proposal, subviews: subviews)
+        let offsets = subviewOffsets(sizes: newSizes, bounds: bounds)
         
         for index in subviews.indices {
             let point:CGPoint = anchor.defaultOrigin(for: bounds)
@@ -29,7 +30,7 @@ struct MyVStackLayout:Layout {
             subviews[index].place(
                 at: offsets[index],
                 anchor: anchor, //does not seem to work for non predefined unit points
-                proposal: ProposedViewSize(cache.sizes[index]))
+                proposal: ProposedViewSize(newSizes[index]))
         }
     }
     
@@ -61,29 +62,29 @@ struct MyVStackLayout:Layout {
         return offsets
     }
     
-    func layout(proposed: ProposedViewSize, subviews children:Subviews, cache: inout CacheData) {
+    func layout(proposed: ProposedViewSize, subviews children:Subviews) -> [CGSize] {
         let flexibility: [LayoutInfo] = LayoutInfo.retrieve(for: children , with: proposed)
         var groups = flexibility.group(by: \.priority)
         var sizes: [CGSize] = Array(repeating: .zero, count: children.count)
-        let allMinWidths = flexibility.map(\.lowerH).reduce(0,+)
-        var remainingWidth = proposed.width! - allMinWidths // TODO force unwrap
+        let allMinHeights = flexibility.map(\.lowerH).reduce(0,+)
+        var remainingHeight = proposed.height! - allMinHeights // TODO force unwrap
         
         while !groups.isEmpty {
             let group = groups.removeFirst()
-            remainingWidth += group.map(\.lowerH).reduce(0,+)
+            remainingHeight += group.map(\.lowerH).reduce(0,+)
             
             var remainingIndices = group.map { $0.index }
             while !remainingIndices.isEmpty {
-                let width = remainingWidth / CGFloat(remainingIndices.count)
+                let height = allMinHeights / CGFloat(remainingIndices.count)
                 let idx = remainingIndices.removeFirst()
                 let child = children[idx]
-                let size = child.sizeThatFits(ProposedViewSize(width: width, height: proposed.height))
+                let size = child.sizeThatFits(ProposedViewSize(width: proposed.width, height: height))
                 sizes[idx] = size
-                remainingWidth -= size.width
-                if remainingWidth < 0 { remainingWidth = 0 }
+                remainingHeight -= size.height
+                if remainingHeight < 0 { remainingHeight = 0 }
             }
         }
-       cache.sizes = sizes
+        return sizes
     }
     
     
@@ -93,8 +94,6 @@ struct MyVStackLayout:Layout {
     struct CacheData {
         let spacing: [CGFloat]
         let totalSpacing: CGFloat
-        var sizes:[CGSize]
-        //let sizes: [CGSize]
     }
 
     /// Creates a cache for a given set of subviews.
@@ -102,12 +101,10 @@ struct MyVStackLayout:Layout {
     func makeCache(subviews: Subviews) -> CacheData {
         let spacing = spacing(subviews: subviews)
         let totalSpacing = spacing.reduce(0) { $0 + $1 }
-        var sizes:[CGSize] = []
 
         return CacheData(
             spacing: spacing,
-            totalSpacing: totalSpacing,
-            sizes: sizes
+            totalSpacing: totalSpacing
         )
     }
     

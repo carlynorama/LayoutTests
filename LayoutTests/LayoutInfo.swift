@@ -33,8 +33,8 @@ extension LayoutInfo {
         subviews.indices.map { idx in
             let child = subviews[idx]
 
-            let lower = child.sizeThatFits(ProposedViewSize(width: 0, height: proposed.height)).width
-            let upper = child.sizeThatFits(ProposedViewSize(width: .greatestFiniteMagnitude, height: proposed.height)).width
+            let lower = child.sizeThatFits(ProposedViewSize(width: proposed.width, height: 0)).height
+            let upper = child.sizeThatFits(ProposedViewSize(width: proposed.width, height: .greatestFiniteMagnitude)).height
             return LayoutInfo(
                 index: idx,
                 lowerH: lower,
@@ -42,7 +42,6 @@ extension LayoutInfo {
                 priority: child.priority
             )
         }.sorted()
-        
     }
 }
 
