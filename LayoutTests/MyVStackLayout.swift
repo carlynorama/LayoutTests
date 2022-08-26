@@ -9,10 +9,12 @@ import SwiftUI
 
 
 struct MyVStackLayout:Layout {
-    let anchor:UnitPoint
+    let alignment:HorizontalAlignment = .center
+    let spacing:CGFloat = 10
     
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) -> CGSize {
-        let sizes = layout(proposed: proposal, subviews: subviews)
+        cache.sizes = layout(proposed: proposal, subviews: subviews)
+        let sizes = cache.sizes
         let width:CGFloat = sizes.reduce(0) { max($0, $1.width) }
         let height:CGFloat = sizes.reduce(0) { $0 + $1.height }
         return CGSize(width: width, height: height)
@@ -21,15 +23,12 @@ struct MyVStackLayout:Layout {
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) {
         guard !subviews.isEmpty else { return }
         
-        let newSizes = layout(proposed: proposal, subviews: subviews)
-        let offsets = subviewOffsets(sizes: newSizes, bounds: bounds)
+        let newSizes = cache.sizes//layout(proposed: proposal, subviews: subviews)
+        let offsets = subviewOffsets(sizes: newSizes, bounds: bounds, alignment: alignment)
         
         for index in subviews.indices {
-            let point:CGPoint = anchor.defaultOrigin(for: bounds)
-            print("point recieved:\(point)")
             subviews[index].place(
                 at: offsets[index],
-                anchor: anchor, //does not seem to work for non predefined unit points
                 proposal: ProposedViewSize(newSizes[index]))
         }
     }
@@ -47,15 +46,15 @@ struct MyVStackLayout:Layout {
 //        return sizes//.map { CGSize(width: manualSize.width, height: $0.height) }
 //    }
     
-    func subviewOffsets(sizes:[CGSize], bounds:CGRect) -> [CGPoint] {
+    func subviewOffsets(sizes:[CGSize], bounds:CGRect, alignment:HorizontalAlignment) -> [CGPoint] {
         var offsets:[CGPoint] = []
     
-        let base = bounds.origin
+        let base = bounds.anchorForAlignment(horizontal: alignment)
         var next = base
         for (size) in sizes {
-            let localOffset = anchor.defaultOrigin(for: CGSize(width: size.width, height: size.height))
-            let x = base.x + localOffset.x
-            let y = next.y + localOffset.y
+            let localOffset = size.anchorForAlignment(horizontal: alignment)
+            let x = base.x - localOffset.x
+            let y = next.y - localOffset.y
             offsets.append(CGPoint(x:x, y:y))
             next.y =  next.y + size.height
         }
@@ -94,6 +93,7 @@ struct MyVStackLayout:Layout {
     struct CacheData {
         let spacing: [CGFloat]
         let totalSpacing: CGFloat
+        var sizes:[CGSize]
     }
 
     /// Creates a cache for a given set of subviews.
@@ -101,10 +101,12 @@ struct MyVStackLayout:Layout {
     func makeCache(subviews: Subviews) -> CacheData {
         let spacing = spacing(subviews: subviews)
         let totalSpacing = spacing.reduce(0) { $0 + $1 }
+        let sizes:[CGSize] = []
 
         return CacheData(
             spacing: spacing,
-            totalSpacing: totalSpacing
+            totalSpacing: totalSpacing,
+            sizes: sizes
         )
     }
     

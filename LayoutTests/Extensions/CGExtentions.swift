@@ -61,6 +61,30 @@ extension CGSize {
 
 }
 
+extension CGSize {
+    func anchorForAlignment(horizontal:HorizontalAlignment = .leading, vertical:VerticalAlignment = .top) -> CGPoint {
+        
+        let fullAlignment = Alignment(horizontal: horizontal, vertical: vertical)
+        return anchorForAlignment(alignment: fullAlignment)
+    }
+    
+    func anchorForAlignment(alignment:Alignment) -> CGPoint {
+        alignment.unitPoint.defaultOrigin(for: self)
+    }
+}
+
+extension CGRect {
+    func anchorForAlignment(horizontal:HorizontalAlignment = .leading, vertical:VerticalAlignment = .top) -> CGPoint {
+        
+        let fullAlignment = Alignment(horizontal: horizontal, vertical: vertical)
+        return anchorForAlignment(alignment: fullAlignment)
+    }
+    
+    func anchorForAlignment(alignment:Alignment) -> CGPoint {
+        alignment.unitPoint.defaultOrigin(for: self)
+    }
+}
+
 
 extension CGFloat {
     var pretty: String {
