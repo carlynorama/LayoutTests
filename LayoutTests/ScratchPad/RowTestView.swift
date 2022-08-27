@@ -94,6 +94,7 @@ struct RowTestView: View {
     var body: some View {
         VStack {
             //TallRowText()
+            Text("SwiftUI:").font(.title)
             Text("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.").logSizes("Text")
             Label("Some short Text. Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.Some short Text.", systemImage: "globe").logSizes("Label").border(.pink)
 //            Label(title: {SomeRowText()}, icon: {           Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit)
@@ -102,7 +103,8 @@ struct RowTestView: View {
 //            Label(title: {SomeRowText()}, icon: {           Image(systemName: "globe")
 //
 //            }).border(.pink)
-//            
+            Divider()
+            Text("Mine:").font(.title)
 //            EHLabel {
 //                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fit).border(.blue)
 //                Spacer()

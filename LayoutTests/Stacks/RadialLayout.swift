@@ -59,7 +59,7 @@ import SwiftUI
 /// [`LayoutValueKey`](https://developer.apple.com/documentation/swiftui/layoutvaluekey)
 /// protocol, and then reads the values to calculate the offset before placing
 /// views.
-struct MyRadialLayout: Layout {
+struct RadialLayout: Layout {
     /// Returns a size that the layout container needs to arrange its subviews
     /// in a circle.
     ///
@@ -119,7 +119,7 @@ struct MyRadialLayout: Layout {
     }
 }
 
-extension MyRadialLayout {
+extension RadialLayout {
     /// Finds the angular offset that arranges the views in rank order.
     ///
     /// This method produces an offset that tells a radial layout how much

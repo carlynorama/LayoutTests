@@ -24,7 +24,7 @@ import SwiftUI
 //}
 
 
-enum MyStyle:String, CaseIterable, Identifiable {
+enum MyStyle:String, CaseIterable, Identifiable, Equatable {
     case manualBlock
     case naiveVerticalBlock
     case compactVerticalBlock
@@ -32,9 +32,24 @@ enum MyStyle:String, CaseIterable, Identifiable {
     case boundingHeight
     
     var id: Self { self }
+    
+    var usesCellHeight:Bool {
+        switch self {
+        case .manualBlock:
+            return false
+        case .naiveVerticalBlock:
+            return true
+        case .compactVerticalBlock:
+            return true
+        case .naiveBoundingHeight:
+            return false
+        case .boundingHeight:
+            return false
+        }
+    }
 }
 
-struct WrappingLayout:Layout {
+struct VStackExperiments:Layout {
     //if this anchor is from .init(x,y) tje placesubviews does not pick it up?
     let anchor:UnitPoint
     let manualSize:CGSize// = CGSize(width: 50, height: 50)

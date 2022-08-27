@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//
 //struct DecoratedText:View {
 //    var text:String
 //    var body: some View {
@@ -62,27 +62,27 @@ import SwiftUI
 //        }
 //    }
 //}
-//
-//struct EStackTests: View {
-////    var strings = "Lorem ipson dolor set ammet consectetur adipiscing elit".components(separatedBy: " ")
-//    var strings = "Lorem ipson dolor set".components(separatedBy: " ")
-//
-//    var body: some View {
-//
-//        ARow().border(.pink)
-////        ViewThatFits {
-////            EHHStack {
-////                TheLoop(strings: strings)
-////            }
-////            EWVStack {
-////                TheLoop(strings: strings)
-////            }
-////        }
-//    }
-//}
-//
-//struct EStackTests_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EStackTests()
-//    }
-//}
+
+struct EStackTests: View {
+//    var strings = "Lorem ipson dolor set ammet consectetur adipiscing elit".components(separatedBy: " ")
+    var strings = "Lorem ipson dolor set".components(separatedBy: " ")
+
+    var body: some View {
+
+        ARow().border(.pink)
+//        ViewThatFits {
+//            EHHStack {
+//                TheLoop(strings: strings)
+//            }
+//            EWVStack {
+//                TheLoop(strings: strings)
+//            }
+//        }
+    }
+}
+
+struct EStackTests_Previews: PreviewProvider {
+    static var previews: some View {
+        EStackTests()
+    }
+}

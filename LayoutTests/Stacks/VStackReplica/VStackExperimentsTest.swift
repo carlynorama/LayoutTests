@@ -7,22 +7,37 @@
 
 import SwiftUI
 
-struct WrappingWrappersTest: View {
-    @State var proposedHeight:CGFloat = 100
+struct VStackExperimentsTest: View {
+    @State var proposedHeight:CGFloat = 400
+    @State var proposedCellHeight:CGFloat = 20
+    @State var useCellHeight = false
     @State var proposedWidth:CGFloat = 100
+    
+    var alignements:[UnitPoint] = [.center, .bottomTrailing, .topLeading]
 
     @State var anchor:UnitPoint = .bottomTrailing
-    @State var style:MyStyle = .boundingHeight
+    @State var style:MyStyle = .manualBlock//.boundingHeight
     
     var body: some View {
         VStack {
-            Picker("Style", selection: $style) {
-                ForEach(MyStyle.allCases) { algo in
-                    Text("\(algo.rawValue)")
+            VStack {
+                Picker("Alignment", selection: $anchor) {
+                    ForEach(alignements, id:\.self) { alignment in
+                        Text(alignment.menuText)
+                    }
                 }
+                Picker("Style", selection: $style) {
+                    ForEach(MyStyle.allCases) { style in
+                        Text("\(style.rawValue)")
+                    }
+                }.task(id: style) {
+                    useCellHeight = style.usesCellHeight
+                }
+                Spacer()
+                Toggle(isOn: $useCellHeight, label: {Text("Uses Cell Height")})
             }
-           // .pickerStyle(.segmented)
-            WrappingLayout(anchor: anchor, manualSize:CGSize(width: proposedWidth, height:proposedHeight), style: style) {
+           
+            VStackExperiments(anchor: anchor, manualSize:CGSize(width: proposedWidth, height: useCellHeight ? proposedCellHeight : proposedHeight), style: style) {
                 
                 Rectangle().fill(.blue)
                     .frame(maxWidth: .infinity)
@@ -41,11 +56,17 @@ struct WrappingWrappersTest: View {
             .border(.pink)
             .padding(10)
             
-            Slider(value: $proposedWidth, in: 25...300)
-            Text("When H is by Each:")
-            Slider(value: $proposedHeight, in: 10...100)
-            Text("When H is by Total:")
-            Slider(value: $proposedHeight, in: 10...500)
+            HStack {
+                Text("Width:")
+                Slider(value: $proposedWidth, in: 25...300)
+            }
+            HStack {
+                Text("Cell Hight:")
+                Slider(value: $proposedCellHeight, in: 10...100)
+            }
+            HStack { Text("Height:")
+                Slider(value: $proposedHeight, in: 100...500)
+            }
             
 //            ZStack(alignment: Alignment(anchor)) {
 //                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fill).frame(width: proposedWidth, height: proposedHeight).opacity(0.5)
@@ -58,7 +79,7 @@ struct WrappingWrappersTest: View {
 
 struct WrappingWrappersTest_Previews: PreviewProvider {
     static var previews: some View {
-        WrappingWrappersTest()
+        VStackExperimentsTest()
     }
 }
 

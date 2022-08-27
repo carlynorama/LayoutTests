@@ -36,7 +36,7 @@ extension UnitPoint {
             return CGPoint(x: bounds.maxX, y: bounds.midY)
         default:
             return bounds.offsetBy(dx: self.x, dy: self.y).origin
-
+            
         }
     }
     
@@ -64,23 +64,25 @@ extension UnitPoint {
             return CGPoint(x: size.maxX, y: size.midY)
         default:
             return CGPoint(x: size.minX, y: size.minY)
-
+            
         }
     }
     
-    static var selectable:[(item:Self, menuText:String)] {
-        return[
-            (.center, "center"),
-            (.zero, "zero"),
-            (.leading, "leading"),
-            (.top, "top"),
-            (.topLeading, "topLeading"),
-            (.topTrailing, "topTrailing"),
-            (.bottom, "bottom"),
-            (.bottomLeading, "bottomLeading"),
-            (.bottomTrailing, "bottomTrailing"),
-            (.trailing, "trailing"),
-        ]
+    var menuText:String {
+        switch self {
+        case .center: return "center"
+        case .leading: return "leading"
+        case .top: return "top"
+        case .topLeading: return "topLeading"
+        case .topTrailing: return "topTrailing"
+        case .bottom: return "bottom"
+        case .bottomLeading: return "bottomLeading"
+        case .bottomTrailing: return "bottomTrailing"
+        case .trailing: return "trailing"
+        //case .zero: return "zero"
+        default:
+            return "Undefined:(\(self.x), \(self.y))"
+        }
     }
 }
 

@@ -34,7 +34,7 @@ struct MyVStackTest: View {
     var body: some View {
         VStack {
             ZStack {
-                AlignedVStackLayout(alignment: alignment) {
+                VStackReplicaSwiftUIAlignmentLayout(alignment: alignment) {
                     sampleView
                     
                 }

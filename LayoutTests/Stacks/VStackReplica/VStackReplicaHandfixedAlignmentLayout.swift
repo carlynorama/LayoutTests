@@ -1,5 +1,5 @@
 //
-//  AlignedVStack.swift
+//  MyVStackLayout.swift
 //  LayoutTests
 //
 //  Created by Labtanza on 8/26/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct AlignedVStackLayout:Layout {
+struct VStackReplicaHandfixedAlignmentLayout:Layout {
     var alignment:HorizontalAlignment = .center
     let spacing:CGFloat = 10
     
@@ -22,14 +22,11 @@ struct AlignedVStackLayout:Layout {
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) {
         guard !subviews.isEmpty else { return }
         
-        var offsets = subviewOffsets(sizes: cache.sizes, spacings: cache.spacing, bounds: bounds, alignment: alignment)
-        
-        let anchor = Alignment(horizontal: alignment, vertical: .top).unitPoint
+        let offsets = subviewOffsets(sizes: cache.sizes, spacings: cache.spacing, bounds: bounds, alignment: alignment)
         
         for index in subviews.indices {
             subviews[index].place(
                 at: offsets[index],
-                anchor: anchor,
                 proposal: ProposedViewSize(cache.sizes[index]))
         }
     }
@@ -45,10 +42,9 @@ struct AlignedVStackLayout:Layout {
         for (pair) in pairs {
             let size = pair.0
             let spacing = pair.1
-            //This is now handled by the builtin anchor. I'm assumin it's faster. 
-            //let localOffset = size//.anchorForAlignment(horizontal: alignment)
-            let x = base.x //- localOffset.x
-            let y = next.y //- localOffset.y
+            let localOffset = size.anchorForAlignment(horizontal: alignment)
+            let x = base.x - localOffset.x
+            let y = next.y - localOffset.y
             offsets.append(CGPoint(x:x, y:y))
             next.y =  next.y + size.height + spacing
         }
