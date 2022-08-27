@@ -21,9 +21,14 @@ import SwiftUI
 ////}
 //
 
-//TODO: Repalce with https://developer.apple.com/documentation/swiftui/layoutvaluekey
-
+//TODO: Repalce with
+/*
+ https://developer.apple.com/documentation/swiftui/layoutvaluekey
+ https://developer.apple.com/documentation/swiftui/view/layoutvalue(key:value:)
+ */
 struct LayoutInfo {
+    static let inf = 1e15
+    
     var index: Int
     var lowerH: CGFloat
     var upperH: CGFloat
@@ -37,7 +42,7 @@ extension LayoutInfo {
             let child = subviews[idx]
 
             let lower = child.sizeThatFits(ProposedViewSize(width: proposed.width, height: 0)).height
-            let upper = child.sizeThatFits(ProposedViewSize(width: proposed.width, height: .greatestFiniteMagnitude)).height
+            let upper = child.sizeThatFits(ProposedViewSize(width: proposed.width, height: inf)).height
             return LayoutInfo(
                 index: idx,
                 lowerH: lower,

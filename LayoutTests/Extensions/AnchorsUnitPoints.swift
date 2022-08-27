@@ -87,7 +87,7 @@ extension UnitPoint {
 }
 
 extension Alignment {
-    var unitPoint:UnitPoint {
+    var unitPoint:UnitPoint? {
         switch self {
         case .center:
             return .center
@@ -108,7 +108,7 @@ extension Alignment {
         case .trailing:
             return .trailing
         default:
-            return .center
+            return nil
         }
     }
 }

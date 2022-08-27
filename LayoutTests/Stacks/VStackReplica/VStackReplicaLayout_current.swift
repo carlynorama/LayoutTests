@@ -10,11 +10,20 @@ import SwiftUI
 //TODO: How to use
 //https://developer.apple.com/documentation/swiftui/layout/explicitalignment(of:in:proposal:subviews:cache:)-3iqmu
 
-struct VStackReplicaSwiftUIAlignmentLayout:Layout {
+struct VStackReplicaLayout_current:Layout {
     var alignment:HorizontalAlignment = .center
-    let spacing:CGFloat = 10
+    var spacing:CGFloat? = nil
+    
+    
     
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) -> CGSize {
+        //print(cache.spacing)
+        if let s = self.spacing {
+            print(cache.spacing)
+            cache.spacing = Array(repeating: s, count: cache.spacing.count-1)
+            cache.spacing.append(0.0)
+            cache.totalSpacing = cache.spacing.reduce(0) { $0 + $1 }
+        }
         
         generateLayoutInfo(proposal: proposal, subviews: subviews, cache: &cache)
 
@@ -43,6 +52,7 @@ struct VStackReplicaSwiftUIAlignmentLayout:Layout {
         let pairs = zip(sizes, spacings)
     
         let base = bounds.anchorForAlignment(horizontal: alignment)
+        
         var next = base
         for (pair) in pairs {
             let size = pair.0
@@ -96,8 +106,8 @@ struct VStackReplicaSwiftUIAlignmentLayout:Layout {
     /// A type that stores cached data.
     /// - Tag: CacheData
     struct CacheData {
-        let spacing: [CGFloat]
-        let totalSpacing: CGFloat
+        var spacing: [CGFloat]
+        var totalSpacing: CGFloat
         var groups:[[LayoutInfo]]
         var sizes:[CGSize]
         var allMinHeights:CGFloat
@@ -135,4 +145,13 @@ struct VStackReplicaSwiftUIAlignmentLayout:Layout {
                 along: .vertical)
         }
     }
+    
+    //???
+    static var layoutProperties: LayoutProperties {
+        var properties = LayoutProperties()
+        properties.stackOrientation = .vertical
+        return properties
+    }
+    
 }
+

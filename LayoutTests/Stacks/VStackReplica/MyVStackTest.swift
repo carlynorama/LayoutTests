@@ -12,6 +12,9 @@ struct MyVStackTest: View {
     @State var proposedWidth:CGFloat = 100
     @State var opacity: Double = 0.5
     
+    @State var spacing:CGFloat = 10
+    @State var padding:CGFloat = 10
+    
     @ViewBuilder var sampleView: some View {
         Rectangle().fill(.blue)
             .frame(maxWidth: .infinity)
@@ -29,30 +32,28 @@ struct MyVStackTest: View {
     }
     
     
-    @State var alignment:HorizontalAlignment = .leading
+    @State var alignment:HorizontalAlignment = .oneQuarter//.leading
     
     var body: some View {
         VStack {
             ZStack {
-                VStackReplicaSwiftUIAlignmentLayout(alignment: alignment) {
+                VStackReplicaLayout_current(alignment: alignment, spacing: spacing) {
                     sampleView
                     
-                }
+                }.padding(padding)
                 .logSizes("MyVStack")
                 .border(.pink, width: 3)
                 .opacity(1-opacity)
                 
-                VStack(alignment: alignment) {
+                VStack(alignment: alignment, spacing: spacing) {
                     sampleView
-                }
+                }.padding(padding)
                 .logSizes("VStack")
                 .border(.pink, width: 3)
                 .opacity(opacity)
-                
             }
             //.frame(width: proposedWidth, height: proposedHeight)
             .border(.blue, width: 3)
-            .padding(10)
             VStack {
                 HStack {Text("Mine");Spacer();Text("SwiftUI")}
                 Slider(value: $opacity, in: 0...1)
@@ -67,7 +68,7 @@ struct MyVStackTest: View {
                 Slider(value: $proposedHeight, in: 25...300)
             }
             
-        }
+        }.padding()
     }
 }
 
