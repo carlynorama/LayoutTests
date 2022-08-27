@@ -26,6 +26,7 @@
 		DA9AAEF828B94A35001523C9 /* Array+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAEF728B94A35001523C9 /* Array+Group.swift */; };
 		DA9AAF3128B99D12001523C9 /* VStackReplicaSwiftUIAlignmentLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3028B99D12001523C9 /* VStackReplicaSwiftUIAlignmentLayout.swift */; };
 		DA9AAF3328BA5BFF001523C9 /* AlimentGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3228BA5BFF001523C9 /* AlimentGuides.swift */; };
+		DA9AAF3828BA8E92001523C9 /* LayoutThatKnows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3728BA8E92001523C9 /* LayoutThatKnows.swift */; };
 		DAA8AF9C28B2CBFC00615CD5 /* TStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */; };
 		DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9F28B2CE8300615CD5 /* FStack.swift */; };
 		DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */; };
@@ -87,6 +88,7 @@
 		DA9AAF3028B99D12001523C9 /* VStackReplicaSwiftUIAlignmentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackReplicaSwiftUIAlignmentLayout.swift; sourceTree = "<group>"; };
 		DA9AAF3228BA5BFF001523C9 /* AlimentGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlimentGuides.swift; sourceTree = "<group>"; };
 		DA9AAF3628BA7F77001523C9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DA9AAF3728BA8E92001523C9 /* LayoutThatKnows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutThatKnows.swift; sourceTree = "<group>"; };
 		DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStack.swift; sourceTree = "<group>"; };
 		DAA8AF9F28B2CE8300615CD5 /* FStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FStack.swift; sourceTree = "<group>"; };
 		DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtentions.swift; sourceTree = "<group>"; };
@@ -162,8 +164,7 @@
 				DAA8AFA628B2D6C200615CD5 /* DetectionViews */,
 				DAA8AFA528B2D14E00615CD5 /* Extensions */,
 				DA14701828B2C9880004E28E /* Stacks */,
-				DA14700C28B2A7070004E28E /* ViewThatKnows.swift */,
-				DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */,
+				DA9AAF3928BA8EA8001523C9 /* UtilityViews */,
 				DAFA609228B517DA00E3291A /* ScratchPad */,
 				DA146FDA28B27E350004E28E /* Assets.xcassets */,
 				DA146FDC28B27E350004E28E /* Preview Content */,
@@ -235,6 +236,16 @@
 				DA9AAEF128B9358D001523C9 /* VStackReplicaHandfixedAlignmentLayout.swift */,
 			);
 			path = VStackReplica;
+			sourceTree = "<group>";
+		};
+		DA9AAF3928BA8EA8001523C9 /* UtilityViews */ = {
+			isa = PBXGroup;
+			children = (
+				DA14700C28B2A7070004E28E /* ViewThatKnows.swift */,
+				DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */,
+				DA9AAF3728BA8E92001523C9 /* LayoutThatKnows.swift */,
+			);
+			path = UtilityViews;
 			sourceTree = "<group>";
 		};
 		DAA8AFA528B2D14E00615CD5 /* Extensions */ = {
@@ -404,6 +415,7 @@
 				DA9AAEF428B93BCC001523C9 /* MyVStackTest.swift in Sources */,
 				DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */,
 				DAB0C36528B456AA00BDAFFC /* FlowSwitcher.swift in Sources */,
+				DA9AAF3828BA8E92001523C9 /* LayoutThatKnows.swift in Sources */,
 				DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */,
 				DA14700D28B2A7070004E28E /* ViewThatKnows.swift in Sources */,
 				DAFA609828B55D9800E3291A /* VStackExperiments.swift in Sources */,
