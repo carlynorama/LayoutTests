@@ -24,6 +24,7 @@
 		DA9AAEF428B93BCC001523C9 /* MyVStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAEF328B93BCC001523C9 /* MyVStackTest.swift */; };
 		DA9AAEF628B94446001523C9 /* LayoutInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAEF528B94446001523C9 /* LayoutInfo.swift */; };
 		DA9AAEF828B94A35001523C9 /* Array+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAEF728B94A35001523C9 /* Array+Group.swift */; };
+		DA9AAF3128B99D12001523C9 /* AlignedVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3028B99D12001523C9 /* AlignedVStack.swift */; };
 		DAA8AF9C28B2CBFC00615CD5 /* TStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */; };
 		DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9F28B2CE8300615CD5 /* FStack.swift */; };
 		DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */; };
@@ -82,6 +83,7 @@
 		DA9AAEF328B93BCC001523C9 /* MyVStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVStackTest.swift; sourceTree = "<group>"; };
 		DA9AAEF528B94446001523C9 /* LayoutInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutInfo.swift; sourceTree = "<group>"; };
 		DA9AAEF728B94A35001523C9 /* Array+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Group.swift"; sourceTree = "<group>"; };
+		DA9AAF3028B99D12001523C9 /* AlignedVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedVStack.swift; sourceTree = "<group>"; };
 		DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStack.swift; sourceTree = "<group>"; };
 		DAA8AF9F28B2CE8300615CD5 /* FStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FStack.swift; sourceTree = "<group>"; };
 		DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtentions.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				DA146FD628B27E340004E28E /* LayoutTestsApp.swift */,
 				DA146FD828B27E340004E28E /* ContentView.swift */,
 				DA9AAEF128B9358D001523C9 /* MyVStackLayout.swift */,
+				DA9AAF3028B99D12001523C9 /* AlignedVStack.swift */,
 				DA9AAEF528B94446001523C9 /* LayoutInfo.swift */,
 				DA9AAEF328B93BCC001523C9 /* MyVStackTest.swift */,
 				DAA8AFA628B2D6C200615CD5 /* DetectionViews */,
@@ -396,6 +399,7 @@
 				DAA8AFA828B2E34300615CD5 /* HPreferingStack.swift in Sources */,
 				DAB0C35F28B4044100BDAFFC /* EHHstack.swift in Sources */,
 				DAA8AFA428B2D13600615CD5 /* BindingsForPreviews.swift in Sources */,
+				DA9AAF3128B99D12001523C9 /* AlignedVStack.swift in Sources */,
 				DA146FD728B27E340004E28E /* LayoutTestsApp.swift in Sources */,
 				DAA8AF9C28B2CBFC00615CD5 /* TStack.swift in Sources */,
 				DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */,

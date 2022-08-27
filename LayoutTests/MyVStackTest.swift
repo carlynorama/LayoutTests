@@ -30,10 +30,11 @@ struct MyVStackTest: View {
     
     
     @State var alignment:HorizontalAlignment = .leading
+    
     var body: some View {
         VStack {
             ZStack {
-                MyVStackLayout(alignment: alignment) {
+                AlignedVStackLayout(alignment: alignment) {
                     sampleView
                     
                 }
