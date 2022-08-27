@@ -22,7 +22,7 @@ struct MyVStackLayout:Layout {
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) {
         guard !subviews.isEmpty else { return }
         
-        let offsets = subviewOffsets(sizes: cache.sizes, bounds: bounds, alignment: alignment)
+        let offsets = subviewOffsets(sizes: cache.sizes, spacings: cache.spacing, bounds: bounds, alignment: alignment)
         
         for index in subviews.indices {
             subviews[index].place(
@@ -32,17 +32,21 @@ struct MyVStackLayout:Layout {
     }
     
     
-    func subviewOffsets(sizes:[CGSize], bounds:CGRect, alignment:HorizontalAlignment) -> [CGPoint] {
+    func subviewOffsets(sizes:[CGSize], spacings:[CGFloat], bounds:CGRect, alignment:HorizontalAlignment) -> [CGPoint] {
         var offsets:[CGPoint] = []
+        
+        let pairs = zip(sizes, spacings)
     
         let base = bounds.anchorForAlignment(horizontal: alignment)
         var next = base
-        for (size) in sizes {
+        for (pair) in pairs {
+            let size = pair.0
+            let spacing = pair.1
             let localOffset = size.anchorForAlignment(horizontal: alignment)
             let x = base.x - localOffset.x
             let y = next.y - localOffset.y
             offsets.append(CGPoint(x:x, y:y))
-            next.y =  next.y + size.height
+            next.y =  next.y + size.height + spacing
         }
         return offsets
     }
@@ -54,12 +58,12 @@ struct MyVStackLayout:Layout {
         cache.allMinHeights = layoutProfiles.map(\.lowerH).reduce(0,+)
         cache.sizes = generateSizes(proposal: proposal, subviews: subviews, cache: &cache)
         cache.width = cache.sizes.reduce(0) { max($0, $1.width) }
-        cache.height = cache.sizes.reduce(0) { $0 + $1.height }
+        cache.height = cache.sizes.reduce(0) { $0 + $1.height }  + cache.totalSpacing
     }
     
     func generateSizes(proposal: ProposedViewSize, subviews:Subviews, cache: inout CacheData) -> [CGSize] {
         var sizes: [CGSize] = Array(repeating: .zero, count: subviews.count)
-        var remainingHeight = proposal.height! - cache.allMinHeights // TODO force unwrap
+        var remainingHeight = proposal.height! - cache.allMinHeights - cache.totalSpacing// TODO force unwrap
         
         var localGroups = cache.groups
         
@@ -122,7 +126,7 @@ struct MyVStackLayout:Layout {
             guard index < subviews.count - 1 else { return 0 }
             return subviews[index].spacing.distance(
                 to: subviews[index + 1].spacing,
-                along: .horizontal)
+                along: .vertical)
         }
     }
 }

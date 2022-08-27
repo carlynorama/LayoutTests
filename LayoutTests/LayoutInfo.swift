@@ -50,7 +50,7 @@ extension LayoutInfo: Comparable {
     static func < (lhs: LayoutInfo, rhs: LayoutInfo) -> Bool {
         if lhs.priority > rhs.priority { return true }
         if lhs.priority < rhs.priority { return false }
-        if lhs.widthFlexibility < rhs.widthFlexibility { return true }
+        if lhs.heightFlexibility < rhs.heightFlexibility { return true }
         return false
     }
     
@@ -60,7 +60,7 @@ extension LayoutInfo: Comparable {
     }
     
     
-    var widthFlexibility:CGFloat {
+    var heightFlexibility:CGFloat {
         upperH - lowerH
     }
     

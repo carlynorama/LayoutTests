@@ -153,7 +153,6 @@
 				DA146FD628B27E340004E28E /* LayoutTestsApp.swift */,
 				DA146FD828B27E340004E28E /* ContentView.swift */,
 				DA9AAEF128B9358D001523C9 /* MyVStackLayout.swift */,
-				DA9AAEF728B94A35001523C9 /* Array+Group.swift */,
 				DA9AAEF528B94446001523C9 /* LayoutInfo.swift */,
 				DA9AAEF328B93BCC001523C9 /* MyVStackTest.swift */,
 				DAA8AFA628B2D6C200615CD5 /* DetectionViews */,
@@ -215,6 +214,7 @@
 		DAA8AFA528B2D14E00615CD5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DA9AAEF728B94A35001523C9 /* Array+Group.swift */,
 				DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */,
 				DAA8AFA328B2D13600615CD5 /* BindingsForPreviews.swift */,
 				DAFA609928B5800600E3291A /* AnchorsUnitPoints.swift */,
