@@ -20,6 +20,32 @@ extension View {
                 .font(.footnote)
         })
     }
+    
+    //Never never never use this on an item that changes its size based on the
+    //binding - it ends up in a feedback loop and can never render.
+    func measure(size:Binding<CGSize>, showOverlay:Bool = true) -> some View {
+        overlay(GeometryReader { proxy in
+            if showOverlay {
+                Text("\(Int(proxy.size.width)) × \(Int(proxy.size.height))")
+                    .foregroundColor(.white)
+                    .background(.black)
+                    .font(.footnote)
+                    .assign(size: size, to: proxy.size)
+            } else {
+                EmptyView().assign(size: size, to: proxy.size)
+            }
+        })
+    }
+    
+    fileprivate func assign(size:Binding<CGSize>, to newSize:CGSize) -> some View {
+        size.wrappedValue = newSize
+        return self
+    }
+    
+//    fileprivate func assign<V>(_ binding:Binding<V>, to newValue:V) -> some View {
+//        binding.wrappedValue = newValue
+//        return self
+//    }
 }
 
 fileprivate struct SizePreferenceKey: PreferenceKey {

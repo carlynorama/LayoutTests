@@ -11,11 +11,13 @@ import SwiftUI
 
 struct LayoutThatKnowsTestView: View {
     @State var proposedSize: CGSize = CGSize(width: 100, height: 100)
+    
+    @State var measuredSize:CGSize = .zero
+    
     var body: some View {
         VStack {
             Text("Hello, world!")
                 .border(Color.red)
-            //.measure()
                 .logSizes("TextView")
                 .padding(10)
                 .logSizes("Padding")
