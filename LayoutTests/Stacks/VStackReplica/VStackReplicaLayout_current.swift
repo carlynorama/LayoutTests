@@ -15,9 +15,11 @@ struct VStackReplicaLayout_current:Layout {
     var spacing:CGFloat? = nil
     
     
+
     
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) -> CGSize {
         //print(cache.spacing)
+        
         if let s = self.spacing {
             print(cache.spacing)
             cache.spacing = Array(repeating: s, count: cache.spacing.count-1)
@@ -33,6 +35,10 @@ struct VStackReplicaLayout_current:Layout {
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) {
         guard !subviews.isEmpty else { return }
         
+//        let test = self.explicitAlignment(of: alignment, in: bounds, proposal: proposal, subviews: subviews, cache: &cache)
+//        
+//        print(test)
+        
         let offsets = subviewOffsets(sizes: cache.sizes, spacings: cache.spacing, bounds: bounds, alignment: alignment)
         
         let anchor = Alignment(horizontal: alignment, vertical: .top).unitPoint
@@ -40,7 +46,7 @@ struct VStackReplicaLayout_current:Layout {
         for index in subviews.indices {
             subviews[index].place(
                 at: offsets[index],
-                anchor: anchor,
+                anchor: anchor ?? .zero,
                 proposal: ProposedViewSize(cache.sizes[index]))
         }
     }
@@ -51,7 +57,7 @@ struct VStackReplicaLayout_current:Layout {
         
         let pairs = zip(sizes, spacings)
     
-        let base = bounds.anchorForAlignment(horizontal: alignment)
+        let base = bounds.anchorForAlignment(horizontal: alignment) ?? bounds.origin
         
         var next = base
         for (pair) in pairs {

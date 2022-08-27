@@ -32,7 +32,7 @@ struct MyVStackTest: View {
     }
     
     
-    @State var alignment:HorizontalAlignment = .oneQuarter//.leading
+    @State var alignment:HorizontalAlignment = .leading//.oneQuarter//.leading
     
     var body: some View {
         VStack {

@@ -37,12 +37,12 @@ struct VStackReplicaHandfixedAlignmentLayout:Layout {
         
         let pairs = zip(sizes, spacings)
     
-        let base = bounds.anchorForAlignment(horizontal: alignment)
+        let base = bounds.anchorForAlignment(horizontal: alignment) ?? bounds.origin
         var next = base
         for (pair) in pairs {
             let size = pair.0
             let spacing = pair.1
-            let localOffset = size.anchorForAlignment(horizontal: alignment)
+            let localOffset = size.anchorForAlignment(horizontal: alignment) ?? CGPoint(x: 0, y: 0)
             let x = base.x - localOffset.x
             let y = next.y - localOffset.y
             offsets.append(CGPoint(x:x, y:y))

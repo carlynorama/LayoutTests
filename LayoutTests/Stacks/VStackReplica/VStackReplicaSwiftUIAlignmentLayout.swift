@@ -31,7 +31,7 @@ struct VStackReplicaSwiftUIAlignmentLayout:Layout {
         for index in subviews.indices {
             subviews[index].place(
                 at: offsets[index],
-                anchor: anchor,
+                anchor: anchor ?? .zero,
                 proposal: ProposedViewSize(cache.sizes[index]))
         }
     }
@@ -42,7 +42,7 @@ struct VStackReplicaSwiftUIAlignmentLayout:Layout {
         
         let pairs = zip(sizes, spacings)
     
-        let base = bounds.anchorForAlignment(horizontal: alignment)
+        let base = bounds.anchorForAlignment(horizontal: alignment) ?? bounds.origin
         var next = base
         for (pair) in pairs {
             let size = pair.0

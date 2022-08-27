@@ -115,7 +115,7 @@ extension Alignment {
 
 
 extension Alignment {
-    init(_ unitPoint:UnitPoint) {
+    init?(_ unitPoint:UnitPoint) {
         switch unitPoint {
         case .center:
             self = Self.center
@@ -138,7 +138,7 @@ extension Alignment {
         case .trailing:
             self = Self.trailing
         default:
-            self = Self.center
+            return nil
             
         }
     }
