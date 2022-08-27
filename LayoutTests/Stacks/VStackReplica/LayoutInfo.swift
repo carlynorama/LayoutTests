@@ -20,6 +20,9 @@ import SwiftUI
 ////    }
 ////}
 //
+
+//TODO: Repalce with https://developer.apple.com/documentation/swiftui/layoutvaluekey
+
 struct LayoutInfo {
     var index: Int
     var lowerH: CGFloat
