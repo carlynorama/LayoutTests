@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selected:Int = 1
+    @State var selected:Int = 3
     var body: some View {
         
         TabView(selection: $selected) {
@@ -27,8 +27,9 @@ struct ContentView: View {
                     Text("Vertical when its narrow")
                     Text("Uses ViewThatKnows")
                 }.tabItem { Text("ViewThatKnows") }.tag(7)
-            }
             LayoutThatKnowsTestView().tabItem { Text("Layout That Knows") }.tag(3)
+            }
+            
         }
 }
 
