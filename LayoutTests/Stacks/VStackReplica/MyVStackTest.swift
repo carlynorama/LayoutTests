@@ -54,7 +54,7 @@ struct MyVStackTest: View {
             .border(.blue, width: 3)
             .padding(10)
             VStack {
-                HStack {Text("NotSwiftUI");Spacer();Text("SwiftUI")}
+                HStack {Text("Mine");Spacer();Text("SwiftUI")}
                 Slider(value: $opacity, in: 0...1)
             }
             

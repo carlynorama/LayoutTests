@@ -7,30 +7,7 @@
 
 import Foundation
 
-//https://www.swiftbysundell.com/articles/sorting-swift-collections/
-//let sortedTags = tags.sorted(by: \.rawValue)
-//let sortedTodoItems = todoItems.sorted(by: \.date)
-//let mostRecentTodoItems = todoItems.sorted(by: \.date, using: >)
-extension Sequence {
-    func sorted<T: Comparable>(
-        by keyPath: KeyPath<Element, T>,
-        using comparator: (T, T) -> Bool = (<)
-    ) -> [Element] {
-        sorted { a, b in
-            comparator(a[keyPath: keyPath], b[keyPath: keyPath])
-        }
-    }
-}
-
-//func sortArticlesByCategory(_ articles: [Article]) -> [Article] {
-//    articles.sorted { articleA, articleB in
-//        guard articleA.category == articleB.category else {
-//            return articleA.category < articleB.category
-//        }
-//
-//        return articleA.title < articleB.title
-//    }
-//}
+//https://github.com/objcio/S01E235-swiftui-layout-explained-layout-priorities/blob/master/SwiftUILayout/Helpers.swift
 
 
 extension Array {

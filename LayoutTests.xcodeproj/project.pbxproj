@@ -86,6 +86,7 @@
 		DA9AAEF728B94A35001523C9 /* Array+Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Group.swift"; sourceTree = "<group>"; };
 		DA9AAF3028B99D12001523C9 /* VStackReplicaSwiftUIAlignmentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackReplicaSwiftUIAlignmentLayout.swift; sourceTree = "<group>"; };
 		DA9AAF3228BA5BFF001523C9 /* AlimentGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlimentGuides.swift; sourceTree = "<group>"; };
+		DA9AAF3628BA7F77001523C9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStack.swift; sourceTree = "<group>"; };
 		DAA8AF9F28B2CE8300615CD5 /* FStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FStack.swift; sourceTree = "<group>"; };
 		DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtentions.swift; sourceTree = "<group>"; };
@@ -134,6 +135,7 @@
 		DA146FCA28B27E340004E28E = {
 			isa = PBXGroup;
 			children = (
+				DA9AAF3628BA7F77001523C9 /* README.md */,
 				DA146FD528B27E340004E28E /* LayoutTests */,
 				DA146FE628B27E350004E28E /* LayoutTestsTests */,
 				DA146FF028B27E350004E28E /* LayoutTestsUITests */,
