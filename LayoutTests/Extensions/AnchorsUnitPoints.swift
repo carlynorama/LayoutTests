@@ -12,7 +12,7 @@ import SwiftUI
 
 
 extension UnitPoint {
-    func defaultOrigin(for bounds: CGRect) -> CGPoint {
+    func anchorPoint(for bounds: CGRect) -> CGPoint {
         switch self {
         case .center:
             return CGPoint(x: bounds.midX, y: bounds.midY)
@@ -40,7 +40,7 @@ extension UnitPoint {
         }
     }
     
-    func defaultOrigin(for size: CGSize) -> CGPoint {
+    func anchorPoint(for size: CGSize) -> CGPoint {
         switch self {
         case .center:
             return CGPoint(x: size.midX, y: size.midY)

@@ -48,11 +48,11 @@ extension CGSize {
     func anchorForAlignment(horizontal:HorizontalAlignment = .leading, vertical:VerticalAlignment = .top) -> CGPoint {
         
         let fullAlignment = Alignment(horizontal: horizontal, vertical: vertical)
-        return anchorForAlignment(alignment: fullAlignment)
+        return anchorForAlignment(fullAlignment)
     }
     
-    func anchorForAlignment(alignment:Alignment) -> CGPoint {
-        alignment.unitPoint.defaultOrigin(for: self)
+    func anchorForAlignment(_ alignment:Alignment) -> CGPoint {
+        alignment.unitPoint.anchorPoint(for: self)
     }
 }
 
@@ -64,7 +64,7 @@ extension CGRect {
     }
     
     func anchorForAlignment(alignment:Alignment) -> CGPoint {
-        alignment.unitPoint.defaultOrigin(for: self)
+        alignment.unitPoint.anchorPoint(for: self)
     }
 }
 

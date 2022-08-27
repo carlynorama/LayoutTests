@@ -66,7 +66,7 @@ struct VStackExperiments:Layout {
         let offsets = subviewOffsets(sizes: sizes, bounds: bounds)
         
         for index in subviews.indices {
-            let point:CGPoint = anchor.defaultOrigin(for: bounds)
+            let point:CGPoint = anchor.anchorPoint(for: bounds)
             print("point recieved:\(point)")
             subviews[index].place(
                 at: offsets[index],
@@ -160,14 +160,14 @@ struct VStackExperiments:Layout {
     func subviewOffsets(sizes:[ProposedViewSize], bounds:CGRect) -> [CGPoint] {
         switch style {
         case .manualBlock:
-            let offsets = [CGPoint](repeating: anchor.defaultOrigin(for: bounds), count: sizes.count)
+            let offsets = [CGPoint](repeating: anchor.anchorPoint(for: bounds), count: sizes.count)
             return offsets
         case .naiveVerticalBlock:
             var offsets:[CGPoint] = []
             let base = bounds.origin
             //var next = CGPoint(x: 0, y: 0)
             for (index, size) in sizes.enumerated() {
-                let localOffset = anchor.defaultOrigin(for: CGSize(width: size.width!, height: size.height!))
+                let localOffset = anchor.anchorPoint(for: CGSize(width: size.width!, height: size.height!))
                 let x = base.x + localOffset.x
                 let y = base.y + (CGFloat(index) * size.height!) + localOffset.y
                 offsets.append(CGPoint(x:x, y:y))
@@ -179,7 +179,7 @@ struct VStackExperiments:Layout {
             let base = bounds.origin
             var next = base
             for (size) in sizes {
-                let localOffset = anchor.defaultOrigin(for: CGSize(width: size.width!, height: size.height!))
+                let localOffset = anchor.anchorPoint(for: CGSize(width: size.width!, height: size.height!))
                 let x = base.x + localOffset.x
                 let y = next.y + localOffset.y
                 offsets.append(CGPoint(x:x, y:y))
@@ -192,7 +192,7 @@ struct VStackExperiments:Layout {
             let base = bounds.origin
             var next = base
             for (size) in sizes {
-                let localOffset = anchor.defaultOrigin(for: CGSize(width: size.width!, height: size.height!))
+                let localOffset = anchor.anchorPoint(for: CGSize(width: size.width!, height: size.height!))
                 let x = base.x + localOffset.x
                 let y = next.y + localOffset.y
                 offsets.append(CGPoint(x:x, y:y))
@@ -205,7 +205,7 @@ struct VStackExperiments:Layout {
             let base = bounds.origin
             var next = base
             for (size) in sizes {
-                let localOffset = anchor.defaultOrigin(for: CGSize(width: size.width ?? 0, height: size.height ?? 0))
+                let localOffset = anchor.anchorPoint(for: CGSize(width: size.width ?? 0, height: size.height ?? 0))
                 let x = base.x + localOffset.x
                 let y = next.y + localOffset.y
                 offsets.append(CGPoint(x:x, y:y))
