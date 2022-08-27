@@ -1,5 +1,7 @@
 #  Layout Tests
 
+Scratch Pad for exploring Layouts
+
 ## Resources
 
 - https://swiftwithmajid.com/2020/01/15/the-magic-of-view-preferences-in-swiftui/
