@@ -29,23 +29,25 @@ struct MyVStackTest: View {
     }
     
     
-    @State var alignment:Alignment = .center
+    @State var alignment:HorizontalAlignment = .leading
     var body: some View {
         VStack {
             ZStack {
-                MyVStackLayout() {
+                MyVStackLayout(alignment: alignment) {
                     sampleView
                     
                 }
                 .logSizes("MyVStack")
-                .opacity(1-opacity)
                 .border(.pink, width: 3)
-                VStack {
+                .opacity(1-opacity)
+                
+                VStack(alignment: alignment) {
                     sampleView
                 }
                 .logSizes("VStack")
-                .opacity(opacity)
                 .border(.pink, width: 3)
+                .opacity(opacity)
+                
             }
             //.frame(width: proposedWidth, height: proposedHeight)
             .border(.blue, width: 3)
