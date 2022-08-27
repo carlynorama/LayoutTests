@@ -10,6 +10,18 @@
 
 import SwiftUI
 
+//TODO: Optional Binding.
+extension View {
+    func measure() -> some View {
+        overlay(GeometryReader { proxy in
+            Text("\(Int(proxy.size.width)) × \(Int(proxy.size.height))")
+                .foregroundColor(.white)
+                .background(.black)
+                .font(.footnote)
+        })
+    }
+}
+
 fileprivate struct SizePreferenceKey: PreferenceKey {
   static var defaultValue: CGSize = .zero
   static func reduce(value: inout CGSize, nextValue: () -> CGSize) {}

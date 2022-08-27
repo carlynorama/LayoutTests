@@ -8,14 +8,6 @@
 import SwiftUI
 
 extension View {
-    func measure() -> some View {
-        overlay(GeometryReader { proxy in
-            Text("\(Int(proxy.size.width)) × \(Int(proxy.size.height))")
-                .foregroundColor(.white)
-                .background(.black)
-                .font(.footnote)
-        })
-    }
     
     func logSizes(_ label:String) -> some View {
         LogSizes(label:label) { self }
