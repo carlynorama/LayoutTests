@@ -14,6 +14,7 @@ GeometryReader Style:
 - https://www.fivestars.blog/articles/flexible-swiftui/
 
 Using Layout:
+- https://developer.apple.com/documentation/swiftui/composing_custom_layouts_with_swiftui
 - https://talk.objc.io/episodes/S01E225-view-protocols-and-shapes
 - https://developer.apple.com/videos/play/wwdc2019/237/
 - https://talk.objc.io/episodes/S01E318-inspecting-swiftui-s-layout-process
@@ -28,14 +29,13 @@ Getting Device & Environemnt Information:
 - https://stackoverflow.com/questions/24065017/how-to-determine-device-type-from-swift-os-x-or-ios
 
 
+AlignmentGuides:
+- https://developer.apple.com/documentation/swiftui/horizontalalignment
+- https://developer.apple.com/documentation/swiftui/alignmentid
+
 Misc:
 - https://blog.scottlogic.com/2019/12/04/switching-swift.html
 - https://blog.eidinger.info/dump-swiftui-environment-efficiently
-
-
-TODO:
-- https://developer.apple.com/documentation/swiftui/horizontalalignment
-- https://developer.apple.com/documentation/swiftui/alignmentid
 
 
 
