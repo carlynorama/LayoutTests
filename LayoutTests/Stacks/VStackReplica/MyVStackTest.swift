@@ -23,6 +23,7 @@ struct MyVStackTest: View {
             .frame(maxHeight: .infinity)
             .frame(height: proposedHeight/2)
             .opacity(0.5).border(.orange)
+            .frame(alignment: .center)
         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum feugiat nibh in consectetur cursus. Phasellus non tristique neque. Fusce sit amet vulputate tellus, quis ultrices magna. Sed ornare molestie cursus. Nulla vitae sem velit. Etiam tincidunt vel metus a euismod. Morbi tempus posuere erat a feugiat. Maecenas cursus ut massa eu pharetra. Quisque scelerisque erat et nisl porttitor commodo. Pellentesque erat erat, aliquam quis ex vitae, finibus bibendum tellus. ").border(.yellow)
         Text("Hello, World!").border(.green)
         //                Image(systemName: "globe").resizable().aspectRatio(contentMode: .fill).opacity(0.5)
@@ -32,15 +33,15 @@ struct MyVStackTest: View {
     }
     
     
-    @State var alignment:HorizontalAlignment = .leading//.oneQuarter//.leading
+    @State var alignment:HorizontalAlignment = .leading
     
     var body: some View {
         VStack {
             ZStack {
                 VStackReplicaLayout_current(alignment: alignment, spacing: spacing) {
                     sampleView
-                    
-                }.padding(padding)
+                }
+                .padding(padding)
                 .logSizes("MyVStack")
                 .border(.pink, width: 3)
                 .opacity(1-opacity)

@@ -9,6 +9,23 @@ import Foundation
 import SwiftUI
 
 
+extension UnitPoint {
+    func translated(_ point:CGPoint) -> UnitPoint{
+        UnitPoint(x: self.x + point.x, y: self.y + point.y)
+    }
+    
+    func translated(x:CGFloat) -> UnitPoint{
+        UnitPoint(x: self.x + x, y: self.y)
+    }
+    
+    func translated(y:CGFloat) -> UnitPoint{
+        UnitPoint(x: self.x, y: self.y + y)
+    }
+    
+    func translated(x:CGFloat, y:CGFloat) -> UnitPoint{
+        UnitPoint(x: self.x + x, y: self.y + y)
+    }
+}
 
 
 extension UnitPoint {
@@ -86,60 +103,52 @@ extension UnitPoint {
     }
 }
 
-extension Alignment {
-    var unitPoint:UnitPoint? {
-        switch self {
-        case .center:
-            return .center
-        case .leading:
-            return .leading
-        case .top:
-            return .top
-        case .topLeading:
-            return .topLeading
-        case .topTrailing:
-            return .topTrailing
-        case .bottom:
-            return .bottom
-        case .bottomLeading:
-            return .bottomLeading
-        case .bottomTrailing:
-            return .bottomTrailing
-        case .trailing:
-            return .trailing
-        default:
+extension UnitPoint {
+    public enum Axis {
+        case vertical, horizontal
+    }
+    
+    init?(_ alignment:Alignment) {
+        guard let u = alignment.unitPoint else {
             return nil
         }
+        self = u
     }
-}
-
-
-extension Alignment {
-    init?(_ unitPoint:UnitPoint) {
-        switch unitPoint {
-        case .center:
-            self = Self.center
-        case .zero:
-            self = Self.topLeading
-        case .leading:
-            self = Self.leading
-        case .top:
-            self = Self.top
-        case .topLeading:
-            self = Self.topLeading
-        case .topTrailing:
-            self = Self.topTrailing
-        case .bottom:
-            self = Self.bottom
-        case .bottomLeading:
-            self = Self.bottomLeading
-        case .bottomTrailing:
-            self = Self.bottomTrailing
-        case .trailing:
-            self = Self.trailing
-        default:
+    
+    init?(horizontal:HorizontalAlignment) {
+        guard let u = Alignment(horizontal: horizontal, vertical: .top).unitPoint else {
             return nil
-            
+        }
+        self = u
+    }
+    
+    init?(vertical:VerticalAlignment) {
+        guard let u = Alignment(horizontal: .leading, vertical: vertical).unitPoint else {
+            return nil
+        }
+        self = u
+    }
+    
+    init?(horizontal:HorizontalAlignment, vertical:VerticalAlignment) {
+        guard let u = Alignment(horizontal: horizontal, vertical: vertical).unitPoint  else {
+            return nil
+        }
+        self = u
+    }
+    
+    init?(dimension:CGSize, base:UnitPoint? = nil, computeValue:@escaping (CGSize) -> CGPoint) {
+        var newUnitPoint = base ?? .zero
+        let translation = computeValue(dimension)
+        self = newUnitPoint.translated(translation)
+    }
+    
+    init?(axis: Axis, dimension:CGSize, base:UnitPoint? = nil, computeValue:@escaping (CGSize) -> CGFloat) {
+        var newUnitPoint = base ?? .zero
+        let translation = computeValue(dimension)
+        if axis == .horizontal {
+            self = newUnitPoint.translated(x: translation)
+        } else {
+            self = newUnitPoint.translated(y: translation)
         }
     }
 }

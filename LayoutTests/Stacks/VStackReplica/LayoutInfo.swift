@@ -40,6 +40,8 @@ extension LayoutInfo {
     static func retrieve(for subviews:LayoutSubviews, with proposed:ProposedViewSize) -> [Self] {
         subviews.indices.map { idx in
             let child = subviews[idx]
+            
+        
 
             let lower = child.sizeThatFits(ProposedViewSize(width: proposed.width, height: 0)).height
             let upper = child.sizeThatFits(ProposedViewSize(width: proposed.width, height: inf)).height

@@ -28,7 +28,7 @@
 		DA9AAF3328BA5BFF001523C9 /* AlimentGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3228BA5BFF001523C9 /* AlimentGuides.swift */; };
 		DA9AAF3828BA8E92001523C9 /* LayoutThatKnows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3728BA8E92001523C9 /* LayoutThatKnows.swift */; };
 		DA9AAF3B28BAA7DB001523C9 /* VStackReplicaLayout_current.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3A28BAA7DB001523C9 /* VStackReplicaLayout_current.swift */; };
-		DA9AAF3D28BAD0CF001523C9 /* Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3C28BAD0CF001523C9 /* Alignment.swift */; };
+		DA9AAF3F28BAD77D001523C9 /* Alignement+UnitPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9AAF3E28BAD77D001523C9 /* Alignement+UnitPoint.swift */; };
 		DAA8AF9C28B2CBFC00615CD5 /* TStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */; };
 		DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AF9F28B2CE8300615CD5 /* FStack.swift */; };
 		DAA8AFA228B2CFE300615CD5 /* CGExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */; };
@@ -46,7 +46,7 @@
 		DAFA609428B5180E00E3291A /* EHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609328B5180E00E3291A /* EHLabel.swift */; };
 		DAFA609628B55D7F00E3291A /* VStackExperimentsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609528B55D7F00E3291A /* VStackExperimentsTest.swift */; };
 		DAFA609828B55D9800E3291A /* VStackExperiments.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609728B55D9800E3291A /* VStackExperiments.swift */; };
-		DAFA609A28B5800600E3291A /* AnchorsUnitPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609928B5800600E3291A /* AnchorsUnitPoints.swift */; };
+		DAFA609A28B5800600E3291A /* UnitPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609928B5800600E3291A /* UnitPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +92,7 @@
 		DA9AAF3628BA7F77001523C9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DA9AAF3728BA8E92001523C9 /* LayoutThatKnows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutThatKnows.swift; sourceTree = "<group>"; };
 		DA9AAF3A28BAA7DB001523C9 /* VStackReplicaLayout_current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackReplicaLayout_current.swift; sourceTree = "<group>"; };
-		DA9AAF3C28BAD0CF001523C9 /* Alignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alignment.swift; sourceTree = "<group>"; };
+		DA9AAF3E28BAD77D001523C9 /* Alignement+UnitPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alignement+UnitPoint.swift"; sourceTree = "<group>"; };
 		DAA8AF9B28B2CBFC00615CD5 /* TStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TStack.swift; sourceTree = "<group>"; };
 		DAA8AF9F28B2CE8300615CD5 /* FStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FStack.swift; sourceTree = "<group>"; };
 		DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtentions.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		DAFA609328B5180E00E3291A /* EHLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EHLabel.swift; sourceTree = "<group>"; };
 		DAFA609528B55D7F00E3291A /* VStackExperimentsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackExperimentsTest.swift; sourceTree = "<group>"; };
 		DAFA609728B55D9800E3291A /* VStackExperiments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackExperiments.swift; sourceTree = "<group>"; };
-		DAFA609928B5800600E3291A /* AnchorsUnitPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorsUnitPoints.swift; sourceTree = "<group>"; };
+		DAFA609928B5800600E3291A /* UnitPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +206,6 @@
 			children = (
 				DA9AAF3528BA61F4001523C9 /* VStackReplica */,
 				DAB0C35928B3CBB200BDAFFC /* EWHStack.swift */,
-				DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */,
 				DAB0C35828B3CBB200BDAFFC /* EWVStack.swift */,
 				DAB0C35A28B3CBB200BDAFFC /* RadialLayout.swift */,
 				DA14701428B2C3350004E28E /* ConditionalStackLayout.swift */,
@@ -256,11 +255,12 @@
 		DAA8AFA528B2D14E00615CD5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */,
 				DA9AAEF728B94A35001523C9 /* Array+Group.swift */,
-				DA9AAF3C28BAD0CF001523C9 /* Alignment.swift */,
 				DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */,
 				DAA8AFA328B2D13600615CD5 /* BindingsForPreviews.swift */,
-				DAFA609928B5800600E3291A /* AnchorsUnitPoints.swift */,
+				DAFA609928B5800600E3291A /* UnitPoint.swift */,
+				DA9AAF3E28BAD77D001523C9 /* Alignement+UnitPoint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,19 +424,19 @@
 				DAB0C36528B456AA00BDAFFC /* FlowSwitcher.swift in Sources */,
 				DA9AAF3828BA8E92001523C9 /* LayoutThatKnows.swift in Sources */,
 				DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */,
-				DA9AAF3D28BAD0CF001523C9 /* Alignment.swift in Sources */,
 				DA14700D28B2A7070004E28E /* ViewThatKnows.swift in Sources */,
 				DAFA609828B55D9800E3291A /* VStackExperiments.swift in Sources */,
 				DAB0C36328B4318C00BDAFFC /* EStackTests.swift in Sources */,
 				DAB0C35B28B3CBB200BDAFFC /* EWVStack.swift in Sources */,
 				DA14701528B2C3350004E28E /* ConditionalStackLayout.swift in Sources */,
-				DAFA609A28B5800600E3291A /* AnchorsUnitPoints.swift in Sources */,
+				DAFA609A28B5800600E3291A /* UnitPoint.swift in Sources */,
 				DA14701728B2C4CC0004E28E /* AStack.swift in Sources */,
 				DAFA609428B5180E00E3291A /* EHLabel.swift in Sources */,
 				DA9AAEF228B9358D001523C9 /* VStackReplicaHandfixedAlignmentLayout.swift in Sources */,
 				DAB0C36128B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift in Sources */,
 				DAB0C35C28B3CBB200BDAFFC /* EWHStack.swift in Sources */,
 				DA14700528B286C90004E28E /* SizeClassDetectionView.swift in Sources */,
+				DA9AAF3F28BAD77D001523C9 /* Alignement+UnitPoint.swift in Sources */,
 				DAA8AFA828B2E34300615CD5 /* HPreferingStack.swift in Sources */,
 				DAB0C35F28B4044100BDAFFC /* EHHstack.swift in Sources */,
 				DAA8AFA428B2D13600615CD5 /* BindingsForPreviews.swift in Sources */,

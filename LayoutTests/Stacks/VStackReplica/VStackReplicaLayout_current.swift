@@ -10,18 +10,25 @@ import SwiftUI
 //TODO: How to use
 //https://developer.apple.com/documentation/swiftui/layout/explicitalignment(of:in:proposal:subviews:cache:)-3iqmu
 
+
 struct VStackReplicaLayout_current:Layout {
     var alignment:HorizontalAlignment = .center
     var spacing:CGFloat? = nil
     
+    //var alignmentGuideCompute:((CGSize)->CGFloat)? = nil
+
     
+    init(alignment: HorizontalAlignment, spacing: CGFloat? = nil) {
+        self.alignment = alignment
+        self.spacing = spacing
+    }
 
     
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) -> CGSize {
         //print(cache.spacing)
         
         if let s = self.spacing {
-            print(cache.spacing)
+            //print(cache.spacing)
             cache.spacing = Array(repeating: s, count: cache.spacing.count-1)
             cache.spacing.append(0.0)
             cache.totalSpacing = cache.spacing.reduce(0) { $0 + $1 }
@@ -35,18 +42,21 @@ struct VStackReplicaLayout_current:Layout {
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) {
         guard !subviews.isEmpty else { return }
         
-//        let test = self.explicitAlignment(of: alignment, in: bounds, proposal: proposal, subviews: subviews, cache: &cache)
-//        
-//        print(test)
+//        let shiftForChildren = self.explicitAlignment(of: alignment, in: bounds, proposal: proposal, subviews: subviews, cache: &cache)
+//        print(shiftForChildren)
+        
+        subviews.indices.map { index in
+            print(subviews[index].dimensions(in: ProposedViewSize(cache.sizes[index])))
+        }
         
         let offsets = subviewOffsets(sizes: cache.sizes, spacings: cache.spacing, bounds: bounds, alignment: alignment)
         
-        let anchor = Alignment(horizontal: alignment, vertical: .top).unitPoint
-        
+        let anchor = UnitPoint(horizontal: alignment, vertical: .top) ?? .zero
+
         for index in subviews.indices {
             subviews[index].place(
                 at: offsets[index],
-                anchor: anchor ?? .zero,
+                anchor: anchor,
                 proposal: ProposedViewSize(cache.sizes[index]))
         }
     }
@@ -63,9 +73,15 @@ struct VStackReplicaLayout_current:Layout {
         for (pair) in pairs {
             let size = pair.0
             let spacing = pair.1
+            
+            
             //This is now handled by the builtin anchor. I'm assuming it's faster.
             //let localOffset = size//.anchorForAlignment(horizontal: alignment)
             let x = base.x //- localOffset.x
+//            if let alignmentGuideCompute {
+//                x += alignmentGuideCompute(size)
+//            }
+            
             let y = next.y //- localOffset.y
             offsets.append(CGPoint(x:x, y:y))
             next.y =  next.y + size.height + spacing

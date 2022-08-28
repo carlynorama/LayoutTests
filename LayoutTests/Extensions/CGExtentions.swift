@@ -44,6 +44,7 @@ extension CGSize {
     var maxY:CGFloat { height }
 }
 
+
 extension CGSize {
     func anchorForAlignment(horizontal:HorizontalAlignment = .leading, vertical:VerticalAlignment = .top) -> CGPoint? {
         
@@ -68,6 +69,15 @@ extension CGRect {
     }
 }
 
+extension CGPoint {
+    static func +(left: CGPoint, right: CGPoint) -> CGPoint {
+        return CGPoint(x: left.x + right.x, y: left.y + right.y)
+    }
+    
+    static func -(left: CGPoint, right: CGPoint) -> CGPoint {
+        return CGPoint(x: left.x - right.x, y: left.y - right.y)
+    }
+}
 
 extension CGFloat {
     var pretty: String {
