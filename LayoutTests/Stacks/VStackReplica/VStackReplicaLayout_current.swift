@@ -27,6 +27,9 @@ struct VStackReplicaLayout_current:Layout {
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout CacheData) -> CGSize {
         //print(cache.spacing)
         
+        //if subviews have alignments, but what about if self's 
+        //self.explicitAlignment(of: <#T##HorizontalAlignment#>, in: <#T##CGRect#>, proposal: <#T##ProposedViewSize#>, subviews: <#T##Subviews#>, cache: &<#T##CacheData#>)
+        
         if let s = self.spacing {
             //print(cache.spacing)
             cache.spacing = Array(repeating: s, count: cache.spacing.count-1)

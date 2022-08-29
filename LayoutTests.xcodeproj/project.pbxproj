@@ -42,6 +42,11 @@
 		DAB0C36328B4318C00BDAFFC /* EStackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36228B4318C00BDAFFC /* EStackTests.swift */; };
 		DAB0C36528B456AA00BDAFFC /* FlowSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36428B456AA00BDAFFC /* FlowSwitcher.swift */; };
 		DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */; };
+		DAD5F84428BBB41700C829C8 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84328BBB41700C829C8 /* FormView.swift */; };
+		DAD5F84628BBB43000C829C8 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84528BBB43000C829C8 /* PickerView.swift */; };
+		DAD5F84928BBFA7900C829C8 /* ChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84828BBFA7900C829C8 /* ChooserView.swift */; };
+		DAD5F84B28BC02A000C829C8 /* SpaceReservingResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84A28BC02A000C829C8 /* SpaceReservingResults.swift */; };
+		DAD5F84D28BC123400C829C8 /* Pretty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84C28BC123400C829C8 /* Pretty.swift */; };
 		DAFA609128B5178C00E3291A /* RowTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609028B5178C00E3291A /* RowTestView.swift */; };
 		DAFA609428B5180E00E3291A /* EHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609328B5180E00E3291A /* EHLabel.swift */; };
 		DAFA609628B55D7F00E3291A /* VStackExperimentsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609528B55D7F00E3291A /* VStackExperimentsTest.swift */; };
@@ -106,6 +111,11 @@
 		DAB0C36228B4318C00BDAFFC /* EStackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EStackTests.swift; sourceTree = "<group>"; };
 		DAB0C36428B456AA00BDAFFC /* FlowSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSwitcher.swift; sourceTree = "<group>"; };
 		DAB0C36628B4646300BDAFFC /* LayoutThatKnowsTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutThatKnowsTestView.swift; sourceTree = "<group>"; };
+		DAD5F84328BBB41700C829C8 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		DAD5F84528BBB43000C829C8 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		DAD5F84828BBFA7900C829C8 /* ChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserView.swift; sourceTree = "<group>"; };
+		DAD5F84A28BC02A000C829C8 /* SpaceReservingResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceReservingResults.swift; sourceTree = "<group>"; };
+		DAD5F84C28BC123400C829C8 /* Pretty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretty.swift; sourceTree = SOURCE_ROOT; };
 		DAFA609028B5178C00E3291A /* RowTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTestView.swift; sourceTree = "<group>"; };
 		DAFA609328B5180E00E3291A /* EHLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EHLabel.swift; sourceTree = "<group>"; };
 		DAFA609528B55D7F00E3291A /* VStackExperimentsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackExperimentsTest.swift; sourceTree = "<group>"; };
@@ -162,6 +172,7 @@
 		DA146FD528B27E340004E28E /* LayoutTests */ = {
 			isa = PBXGroup;
 			children = (
+				DAD5F84728BBB43700C829C8 /* Picker */,
 				DA146FD628B27E340004E28E /* LayoutTestsApp.swift */,
 				DA146FD828B27E340004E28E /* ContentView.swift */,
 				DA9AAF3428BA5E34001523C9 /* AlignementTests */,
@@ -255,6 +266,7 @@
 		DAA8AFA528B2D14E00615CD5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DAD5F84C28BC123400C829C8 /* Pretty.swift */,
 				DAB0C36028B4055B00BDAFFC /* ExtensionLayout+CommonTasks.swift */,
 				DA9AAEF728B94A35001523C9 /* Array+Group.swift */,
 				DAA8AFA128B2CFE300615CD5 /* CGExtentions.swift */,
@@ -272,6 +284,17 @@
 				DA14700228B2815B0004E28E /* DeviceDetection.swift */,
 			);
 			path = DetectionViews;
+			sourceTree = "<group>";
+		};
+		DAD5F84728BBB43700C829C8 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				DAD5F84328BBB41700C829C8 /* FormView.swift */,
+				DAD5F84528BBB43000C829C8 /* PickerView.swift */,
+				DAD5F84828BBFA7900C829C8 /* ChooserView.swift */,
+				DAD5F84A28BC02A000C829C8 /* SpaceReservingResults.swift */,
+			);
+			path = Picker;
 			sourceTree = "<group>";
 		};
 		DAFA609228B517DA00E3291A /* ScratchPad */ = {
@@ -421,6 +444,7 @@
 				DA146FD928B27E340004E28E /* ContentView.swift in Sources */,
 				DA9AAEF428B93BCC001523C9 /* MyVStackTest.swift in Sources */,
 				DAA8AFA028B2CE8300615CD5 /* FStack.swift in Sources */,
+				DAD5F84D28BC123400C829C8 /* Pretty.swift in Sources */,
 				DAB0C36528B456AA00BDAFFC /* FlowSwitcher.swift in Sources */,
 				DA9AAF3828BA8E92001523C9 /* LayoutThatKnows.swift in Sources */,
 				DAB0C36728B4646300BDAFFC /* LayoutThatKnowsTestView.swift in Sources */,
@@ -438,6 +462,8 @@
 				DA14700528B286C90004E28E /* SizeClassDetectionView.swift in Sources */,
 				DA9AAF3F28BAD77D001523C9 /* Alignement+UnitPoint.swift in Sources */,
 				DAA8AFA828B2E34300615CD5 /* HPreferingStack.swift in Sources */,
+				DAD5F84B28BC02A000C829C8 /* SpaceReservingResults.swift in Sources */,
+				DAD5F84428BBB41700C829C8 /* FormView.swift in Sources */,
 				DAB0C35F28B4044100BDAFFC /* EHHstack.swift in Sources */,
 				DAA8AFA428B2D13600615CD5 /* BindingsForPreviews.swift in Sources */,
 				DA9AAF3128B99D12001523C9 /* VStackReplicaSwiftUIAlignmentLayout.swift in Sources */,
@@ -449,6 +475,8 @@
 				DA14701128B2BB530004E28E /* TStackTestView.swift in Sources */,
 				DA9AAEF628B94446001523C9 /* LayoutInfo.swift in Sources */,
 				DA14700328B2815B0004E28E /* DeviceDetection.swift in Sources */,
+				DAD5F84928BBFA7900C829C8 /* ChooserView.swift in Sources */,
+				DAD5F84628BBB43000C829C8 /* PickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
