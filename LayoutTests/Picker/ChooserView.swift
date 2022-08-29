@@ -32,8 +32,8 @@ struct ChooserView: View {
     @State var buffer:Double = 0
     @State var previousValues:[Result] = []
     
-    //var sizeFactor
-
+    @State var showingResults = false
+    
     
     var body: some View {
         
@@ -48,9 +48,12 @@ struct ChooserView: View {
             Stepper("\(value.pretty)", value: $value).onChange(of: value) { newValue in
                 previousValues.append(Result(value: buffer))
                 buffer = newValue
-            }.border(.pink).font(.monospaced(.body)())
+                withAnimation {
+                    showingResults = true
+                }
+            }
             Spacer()
-            SpaceReservingResults(items: previousValues).border(.pink)
+            SpaceReservingResults(items: previousValues, showingResults: $showingResults)
         }.padding()
             .onAppear() {
                 buffer = value

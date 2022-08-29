@@ -15,7 +15,7 @@ struct FormView: View {
     var body: some View {
         Form {
             PickerView(value: $value)
-            ChooserView(value: $value).border(.blue)
+            ChooserView(value: $value)
             DatePicker("Date", selection: $now)
         }
     }

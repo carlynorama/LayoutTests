@@ -27,7 +27,7 @@ struct PickerView: View {
         Button(
             action: { showingPopover.toggle() },
             label: {
-                Text("\(value.pretty)").font(.monospaced(.body)())
+                Text("\(value.pretty)")
             }).buttonStyle(.borderedProminent).frame(width: 100)
     }
 }

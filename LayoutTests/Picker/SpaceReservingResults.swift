@@ -9,16 +9,33 @@ import SwiftUI
 
 struct SpaceReservingResults: View {
     var items:[Result]
+    
+    @Binding var showingResults:Bool
+    
     var body: some View {
         ReservingSpaceLayout() {
             ResultRow(result: Result.example).opacity(0)
-            ScrollView() {
-                VStack(alignment: .trailing) {
-                    ForEach(items) { item in
-                        ResultRow(result: item).border(.green)
+            ZStack {
+                PlacehoderView().opacity(showingResults ? 0:1)
+                if showingResults {
+                    ScrollView() {
+                        VStack(alignment: .trailing) {
+                            ForEach(items) { item in
+                                ResultRow(result: item)
+                            }
+                        }.frame(maxWidth: .infinity, alignment: .trailing)
+                            .opacity(showingResults ? 1:0)
+                            .transition(resultReveal)
                     }
-                }.frame(maxWidth: .infinity, alignment: .trailing)
+                }
             }
+        }
+    }
+    
+    struct PlacehoderView:View {
+        var body: some View {
+            Rectangle().foregroundColor(Color(uiColor: .tertiarySystemFill))
+                .border(.secondary)
         }
     }
 }
@@ -85,6 +102,27 @@ struct ResultRow:View {
 //
 //
 //}
+
+var resultReveal:AnyTransition {
+    //AnyTransition.scale(scale: 2, anchor: UnitPoint(x: 1, y: 0))
+    AnyTransition.opacity.combined(with: .move(edge: .top)).combined(with: verticalClipTransition)
+}
+
+struct VerticalClipEffect:ViewModifier {
+    var value: CGFloat
+    
+    func body(content: Content) -> some View {
+        content
+            .clipShape(Rectangle().scale(x: 1, y: value, anchor: .top))
+    }
+}
+
+var verticalClipTransition:AnyTransition {
+    .modifier(
+        active: VerticalClipEffect(value: 0),
+        identity: VerticalClipEffect(value: 1)
+    )
+}
 
 
 fileprivate struct ReservingSpaceLayout:Layout {
