@@ -53,7 +53,7 @@ struct ChooserView: View {
                 }
             }
             Spacer()
-            SpaceReservingResults(items: previousValues, showingResults: $showingResults)
+            SpaceReservingViewResults(items: previousValues, showingResults: $showingResults)
         }.padding()
             .onAppear() {
                 buffer = value

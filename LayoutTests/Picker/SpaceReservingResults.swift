@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct SpaceReservingResults: View {
+struct SpaceReservingViewResults: View {
     var items:[Result]
     
     @Binding var showingResults:Bool
     
     var body: some View {
-        ReservingSpaceLayout() {
+        ReservingSpaceWithView() {
             ResultRow(result: Result.example).opacity(0)
             ZStack {
                 PlacehoderView().opacity(showingResults ? 0:1)
@@ -71,15 +71,15 @@ struct ResultRow:View {
 }
 
 
-
-//struct ReservingSpaceLayout:Layout {
+//
+//struct ReservingSpaceWithLayout:Layout {
 //
 //    //needs a sizeThatFits
-//    let limitingView:ResultRow = ResultRow(result: Result.example)
+//    let limitingLayout:some Shape = Rectangle()
 //    let count = 6.0
 //
 //    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-//        let sizeLimiter = limitingView.sizeThatFits(proposal)
+//        let sizeLimiter = limitingLayout.sizeThatFits(proposal)
 //        let suggestedSize = proposal.replacingUnspecifiedDimensions()
 //        var size = CGSize(width: max(sizeLimiter.width, suggestedSize.width), height: max(sizeLimiter.height * count, suggestedSize.height))
 //        return size
@@ -125,10 +125,9 @@ var verticalClipTransition:AnyTransition {
 }
 
 
-fileprivate struct ReservingSpaceLayout:Layout {
+fileprivate struct ReservingSpaceWithView:Layout {
     
     //needs a sizeThatFits
-    let limitingView:ResultRow = ResultRow(result: Result.example)
     let count = 6.0
     let widthComfort = 1.3
     

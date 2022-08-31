@@ -47,6 +47,7 @@
 		DAD5F84928BBFA7900C829C8 /* ChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84828BBFA7900C829C8 /* ChooserView.swift */; };
 		DAD5F84B28BC02A000C829C8 /* SpaceReservingResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84A28BC02A000C829C8 /* SpaceReservingResults.swift */; };
 		DAD5F84D28BC123400C829C8 /* Pretty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84C28BC123400C829C8 /* Pretty.swift */; };
+		DAD5F84F28BE77E500C829C8 /* ResultLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5F84E28BE77E500C829C8 /* ResultLayout.swift */; };
 		DAFA609128B5178C00E3291A /* RowTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609028B5178C00E3291A /* RowTestView.swift */; };
 		DAFA609428B5180E00E3291A /* EHLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609328B5180E00E3291A /* EHLabel.swift */; };
 		DAFA609628B55D7F00E3291A /* VStackExperimentsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA609528B55D7F00E3291A /* VStackExperimentsTest.swift */; };
@@ -116,6 +117,7 @@
 		DAD5F84828BBFA7900C829C8 /* ChooserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserView.swift; sourceTree = "<group>"; };
 		DAD5F84A28BC02A000C829C8 /* SpaceReservingResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceReservingResults.swift; sourceTree = "<group>"; };
 		DAD5F84C28BC123400C829C8 /* Pretty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pretty.swift; sourceTree = SOURCE_ROOT; };
+		DAD5F84E28BE77E500C829C8 /* ResultLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultLayout.swift; sourceTree = "<group>"; };
 		DAFA609028B5178C00E3291A /* RowTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTestView.swift; sourceTree = "<group>"; };
 		DAFA609328B5180E00E3291A /* EHLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EHLabel.swift; sourceTree = "<group>"; };
 		DAFA609528B55D7F00E3291A /* VStackExperimentsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackExperimentsTest.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				DAD5F84328BBB41700C829C8 /* FormView.swift */,
 				DAD5F84528BBB43000C829C8 /* PickerView.swift */,
 				DAD5F84828BBFA7900C829C8 /* ChooserView.swift */,
+				DAD5F84E28BE77E500C829C8 /* ResultLayout.swift */,
 				DAD5F84A28BC02A000C829C8 /* SpaceReservingResults.swift */,
 			);
 			path = Picker;
@@ -439,6 +442,7 @@
 			files = (
 				DAB0C35D28B3CBB200BDAFFC /* RadialLayout.swift in Sources */,
 				DA9AAEF828B94A35001523C9 /* Array+Group.swift in Sources */,
+				DAD5F84F28BE77E500C829C8 /* ResultLayout.swift in Sources */,
 				DA9AAF3B28BAA7DB001523C9 /* VStackReplicaLayout_current.swift in Sources */,
 				DAFA609628B55D7F00E3291A /* VStackExperimentsTest.swift in Sources */,
 				DA146FD928B27E340004E28E /* ContentView.swift in Sources */,
