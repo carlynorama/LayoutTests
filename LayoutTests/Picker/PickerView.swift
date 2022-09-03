@@ -19,7 +19,7 @@ struct PickerView: View {
             Text("Hello, World! I am the value: ")
             LaunchPickerButton
         }.popover(isPresented: $showingPopover) {
-            ChooserView(value: $value)
+            PickerPopoverView(value: $value)
         }
     }
     

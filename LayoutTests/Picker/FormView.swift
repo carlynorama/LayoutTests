@@ -15,7 +15,7 @@ struct FormView: View {
     var body: some View {
         Form {
             PickerView(value: $value)
-            ChooserView(value: $value)
+            PickerPopoverView(value: $value, isEmbeded: true)
             DatePicker("Date", selection: $now)
         }
     }
